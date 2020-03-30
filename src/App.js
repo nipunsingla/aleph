@@ -1,15 +1,23 @@
 import React from 'react';
+import NavBar from "./components/NavBar";
+import { useAuth0 } from "./auth/react-auth0-spa";
 import './App.css';
 
 function App() {
+  const { loading } = useAuth0();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        Hello!
-        Rishabh,Sagar,Lucky....
+        <NavBar />
       </header>
     </div>
   );
 }
 
 export default App;
+
