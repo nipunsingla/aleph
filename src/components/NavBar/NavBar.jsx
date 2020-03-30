@@ -1,9 +1,13 @@
 import React from 'react';
 import { Navbar ,Nav,Button} from 'react-bootstrap';
 
-const Header = () => (
+import { useAuth0 } from "../../auth/react-auth0-spa";
 
-    <div>
+const NavBar = () => {
+
+    const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+   return (
+   <div>
         <Navbar bd='light' expand='lg'>
             <Navbar.Brand href="#home">
                 <img
@@ -21,9 +25,15 @@ const Header = () => (
       <Nav.Link href="#pricing">Pricing</Nav.Link>
 
       <Nav.Link href="#home">Home</Nav.Link>
-      <Button className='bg-primay mr-3 ml-4'>
-          Log in
-      </Button>
+      
+     
+            {!isAuthenticated && (
+                <Button className='mx-4'  onClick={() => loginWithRedirect({})}>Log in</Button>
+            )}
+
+            {isAuthenticated && <Button className='mx-4' onClick={() => logout()}>Log out</Button>}
+        
+     
       <Button className='bg-secondary'>
         Sign Up
       </Button>
@@ -33,5 +43,5 @@ const Header = () => (
     </div>
 
 
-)
-export default Header;
+)}
+export default NavBar;
