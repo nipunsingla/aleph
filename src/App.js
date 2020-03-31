@@ -5,8 +5,8 @@ import Homepage from './pages/homepage/homepage'
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  const { loading } = useAuth0();
+async function App() {
+  const { loading } = await useAuth0();
 
   if (loading) {
     return <div>Loading...</div>;
@@ -18,7 +18,7 @@ function App() {
         <NavBar />
      
           <Route path='/' exact component={Homepage} />
-        
+      
       </header>
     </div>
   );
