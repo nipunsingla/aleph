@@ -5,8 +5,8 @@ import Homepage from './pages/homepage/homepage'
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
-async function App() {
-  const { loading } = await useAuth0();
+function App() {
+  const { loading } = useAuth0();
 
   if (loading) {
     return <div>Loading...</div>;
