@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form } from 'react-bootstrap'
+import { Button, Form,Col,Row } from 'react-bootstrap'
 class Community extends Component {
     render() {
         return (
@@ -16,23 +16,29 @@ class Community extends Component {
                 <h4>
                     Get started as...
                 </h4>
-                <div>
-                    <Button className='mx-5 bg-black'>
-                        Student
+                    <Row>
+                    <Col className='col-sm'>
+                        <Button className='bg-black'>
+                            Student
                     </Button>
 
-                    <Button className='mx-5 bg-black'>
+                    </Col>
+                    <Col className='col-sm'>
+                    <Button className='bg-black'>
                         Teacher
                     </Button >
-                    <Button className='mx-5 bg-black'>
+                    </Col>
+                    <Col className='col-sm'>
+                    <Button className='bg-black'>
                         Parent
                     </Button>
-                </div>
+                    </Col>
+                    </Row>
                 <p>or </p>
                 <h3>Make new</h3>
                 <Form.Group>
                     <Form.Control type="email" placeholder="Enter your email" />
-                    <Button className='bg-danger'>
+                    <Button className='bg-danger mt-3'>
                         Get Started
                     </Button>
                 </Form.Group>

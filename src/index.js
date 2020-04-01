@@ -8,6 +8,7 @@ import { Auth0Provider } from "./auth/react-auth0-spa";
 import config from "./auth/auth_config.json";
 import history from "./utils/history";
 import {BrowserRouter} from 'react-router-dom';
+
 // A function that routes the user to the right place
 // after login
 const onRedirectCallback = appState => {

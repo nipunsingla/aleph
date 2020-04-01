@@ -14,19 +14,22 @@ const Homepage = () => {
                     <Directory />
                 </Col>
             </Row>
-
-            <Row>
-                <Col className='mt-5 ml-5 mr-5'>
-
-                    <Community />
-                </Col>
-                <Col className='mx-5 mt-5'>
+                <Row>
+                    <Col className='col-sm mt-4'>
+                        <Container>
+                        <Community/>
+                        </Container>
+                    </Col>
+                    <Col className='col-sm mt-4'>
+                    <Container>
 
                         <Cards />
-                    
-                </Col>
-            </Row>
+                        </Container>
+
+                    </Col>
+                </Row>
         </div>
+
     )
 }
 export default Homepage;

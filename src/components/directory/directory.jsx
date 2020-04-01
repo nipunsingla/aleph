@@ -4,7 +4,7 @@ const Directory =()=>{
     return(
         <div>
             <Card className=' bg-danger'>
-              <h3 className='mg auto text-center' variant='bg-light'>
+              <h3 className='mg auto text-center' style={{color:'white'}}>
             Stay connected and producive while working remotely
        </h3>
        </Card>

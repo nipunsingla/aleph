@@ -18,7 +18,7 @@ function App() {
         <NavBar />
      
           <Route path='/' exact component={Homepage} />
-        
+      
       </header>
     </div>
   );
