@@ -29,7 +29,13 @@ class ClassCourses extends React.Component {
     //   this.k=this.k+1;
     render() {
         return (
-            <div className='col-lg-4'>
+            <div className='col-lg-4'  style={{
+                'border-style': 'solid',
+                'border-color':'grey',
+                'border-left-style':'hidden',
+                'border-top-stye':'hidden',
+                    height:'100%'
+            }}>
                 
                    <div className='my-3 p-2' style={
                         {
@@ -75,6 +81,7 @@ type='text'  placeholder='search here...'></input>
 
             {
             OTHERDROPDOWN.map((topic,index)=><OtherDropDown key={index} topic={topic}/>)}
+      
            </div>
         )
     }

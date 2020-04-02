@@ -8,7 +8,7 @@ const Course=({Course})=>{
         <img src={Course.imgUrl} style={{
             width: '4vw',
             height: '6vh'
-
+            
 
         }}>
         </img>
