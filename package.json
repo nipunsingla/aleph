@@ -11,8 +11,7 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1"
   },
   "scripts": {
@@ -23,6 +22,9 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "resolutions": {
+    "react-router-dom": "5.0.0"
   },
   "browserslist": {
     "production": [
@@ -35,10 +37,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "resolutions": {
-    "react-router": "5.0.0",
-    "react-router-dom": "5.0.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
