@@ -40,7 +40,7 @@ class Community extends Component {
                     <Form.Control type="email" placeholder="Enter your email" />
                     <Button className='bg-danger mt-3'>
                         Get Started
-        </Button>
+                    </Button>
                 </Form.Group>
             </div>
         )
