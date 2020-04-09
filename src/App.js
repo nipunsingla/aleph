@@ -2,7 +2,8 @@ import React from 'react';
 import NavBar from "./components/NavBar/NavBar";
 import { useAuth0 } from "./auth/react-auth0-spa";
 import Homepage from './pages/homepage/homepage'
-import { Route, Switch } from 'react-router-dom';
+import {Classroom2} from './pages/classroom/Classroom2'
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 
 function App() {
@@ -16,9 +17,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <NavBar />
-     
-          <Route path='/' exact component={Homepage} />
-      
+          <Router>
+            <Switch>
+              <Route exact path='/'  component={Homepage} />
+              <Route path='/classroom' component={Classroom2} />
+            </Switch>
+          </Router>
       </header>
     </div>
   );
