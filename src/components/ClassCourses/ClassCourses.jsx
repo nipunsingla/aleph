@@ -29,13 +29,7 @@ class ClassCourses extends React.Component {
     //   this.k=this.k+1;
     render() {
         return (
-            <div className='col-lg-4'  style={{
-                'border-style': 'solid',
-                'border-color':'grey',
-                'border-left-style':'hidden',
-                'border-top-stye':'hidden',
-                    height:'100%'
-            }}>
+            <div className='mr-2'>
                 
                    <div className='my-3 p-2' style={
                         {
@@ -54,7 +48,7 @@ type='text'  placeholder='search here...'></input>
                     Classroom
         </h3>
                 <ul className='list-unstyled'>
-                {COURSE.slice(0,this.state.k).map((course,index)=><Course key={index} Course={course}/>)}
+                {COURSE.slice(0,this.state.k).map((course,index)=><Course key={index} Course={course} onClick={this.props.action({subject:course.title, code:'abcd',set:'1'})}/>)}
 
                 </ul>
 

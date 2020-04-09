@@ -1,12 +1,2 @@
 .container {
-    position: relative;
-
-    height :'15px';
-    width:'15px';
-
-    border-radius: '50px';
-    color:greenyellow;
-    top: 6;
-    left: 100; 
-    background-color:greenyellow ;
 }
