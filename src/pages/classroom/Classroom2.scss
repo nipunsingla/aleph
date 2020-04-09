@@ -10,6 +10,7 @@
 .nav{
     display: block;
     text-align: center;
+    height: 100%;
     .navIcon{
         color: black
     }
@@ -64,6 +65,14 @@
         }
     }
 }
+.col-container {
+    display: table;
+    width: 100%;
+  }
+  .col1 {
+    display: table-cell;
+    padding: 16px;
+  }
 
 .customPagination{
     background-color: #e6e6e6;
