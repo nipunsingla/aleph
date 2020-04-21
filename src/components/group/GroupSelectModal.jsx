@@ -33,7 +33,7 @@ export const GroupSelectModal = (props) => {
                 <Modal.Body>
                     {groups.map((group, idx)=>{
                         return(
-                            <Link key={idx} to="/group" onClick={()=>{props.onHide()}}>{group.name}</Link>
+                            <Link key={idx} to="/group" onClick={()=>{props.onHide();}}>{group.name}</Link>
                         )
                     })}
                 </Modal.Body>

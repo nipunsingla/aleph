@@ -35,7 +35,6 @@ class LeftBar extends React.Component {
                     <GroupSelectModal
                         show={this.state.groupSelectShow}
                         onHide={this.toggleGroupSelectShow}
-                        gotogroup={this.props.gotogroup}
                     />
                 </ul>
 

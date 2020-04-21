@@ -21,7 +21,7 @@ class Group extends React.Component{
                     <Row className="page">
                         <Col className="padding-0" xs>
                             <div className='nav'>
-                                <LeftBar gototgroup={this.goToGroup}/>
+                                <LeftBar/>
                             </div>
                         </Col>
                     
