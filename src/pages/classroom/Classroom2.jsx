@@ -1,59 +1,88 @@
 import React, {useState} from 'react';
 import {Row, Col, Container, ListGroup} from 'react-bootstrap';
+
+import ClassCourses from '../../components/ClassCourses/ClassCourses'
+import LeftBar from '../../components/LeftBar/LeftBar'
 import {Link} from 'react-router-dom'
 import './classroom2.css';
 import {Content} from './Content'
 
-export const Classroom2 = () => {
-    const [subjects, setSubjects] = useState([
-        {class: "Maths 101", code: "abcd"},
-        {class: "CS 101", code: "efgh"},
-        {class: "History", code: "ijkl"},
-    ]);
-    const [currSubject, setCurrSubject] = useState(
-        {class: "Maths 101", code:"abcd"}
-    ); 
+export  class Classroom2 extends React.Component  {
+    constructor(props) {
+        super(props)
 
+        // Bind the this context to the handler function
+        this.handler = this.handler.bind(this);
+
+        // Set some state
+        this.state = {
+            currentSubject: {
+                class:'history',
+                code:'1233',
+                set:'0'
+            }
+        };
+    }
+    componentDidMount(){
+        this.setState({
+            currentSubject:{
+                class:'history',
+                code:'abcd'
+            }
+        })
+    }
+    // This method will be sent to the child component
+    handler(subject) {
+        console.log(subject)
+        console.log(this.state)
+        if(this.state.set=='0'){
+            this.setState({
+                currentSubject:{
+                    class:subject.class,
+                    code:'1234'
+                },
+                set:'1'
+            });
+        }
+    }
+
+    // const [subjects, setSubjects] = useState([
+    //     {class: "Maths 101", code: "abcd"},
+    //     {class: "CS 101", code: "efgh"},
+    //     {class: "History", code: "ijkl"},
+    // ]);
+    // const [currSubject, setCurrSubject] = useState(
+    //     {class: "Maths 101", code:"abcd"}
+    // ); 
+    render(){
     return (
         <div>
             <Container fluid>
                 <Row className="page">
                     <Col className="padding-0" xs>
-                        <div className="nav">
-                            <div>
-                                <i className="material-icons"><Link to="/" className="navIcon">home</Link></i>
-                            </div>
-                            <div>   
-                                <i className="material-icons"><Link to="/classroom" className="navIcon">notifications</Link></i>
-                            </div>  
+                        <div className='nav'>
+
+                        <LeftBar/>
                         </div>
                     </Col>
-                    <Col className="padding-0" xs lg={2}>
+                
+                    <Col className="padding-0" xs lg={3}>
                         <div className="classrooms">
-                            <Container fluid>
-                                <Row>
-                                    <Col>
-                                        <h2>Classrooms</h2>
-                                    </Col>
-                                </Row>
-                                <ListGroup defaultActiveKey="#link1" variant="flush">
-                                    {subjects.map((subject, idx) => {
-                                        return (
-                                            <ListGroup.Item action key={idx} onClick={() => {setCurrSubject(subject)}}>
-                                                {subject.class}
-                                            </ListGroup.Item>    
-                                        )})}
-                                </ListGroup>
-                            </Container>
+                      
+                        <ClassCourses action={this.handler}/>
+                        </div>
+                        
+                    </Col>
+                
+                    <Col className="padding-0" xs lg={8}>
+                        <div className="content">
+                            <Content subject = {{class:this.state.currentSubject.class,code:'dkd'}}></Content>
                         </div>
                     </Col>
-                    <Col className="padding-0" xs lg={9}>
-                        <div className = "content">
-                            <Content subject = {currSubject}></Content>
-                        </div>
-                    </Col>
+              
                 </Row>
             </Container>
         </div>
     )
+    }
 }

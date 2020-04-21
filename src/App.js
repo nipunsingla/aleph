@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar/NavBar";
 import { useAuth0 } from "./auth/react-auth0-spa";
 import Homepage from './pages/homepage/homepage'
 import {Classroom2} from './pages/classroom/Classroom2'
+import {Group} from './pages/group/group'
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 
@@ -20,7 +21,9 @@ function App() {
           <Router>
             <Switch>
               <Route exact path='/'  component={Homepage} />
-              <Route path='/classroom' component={Classroom2} />
+              <Route exact path='/classroom'  component={Classroom2} /> 
+
+              <Route exact path='/group'  component={Group} /> 
             </Switch>
           </Router>
       </header>
