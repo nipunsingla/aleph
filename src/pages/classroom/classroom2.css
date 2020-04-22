@@ -11,6 +11,7 @@
 .nav {
   display: block;
   text-align: center;
+  height: 100%;
 }
 
 .nav .navIcon {
@@ -72,6 +73,16 @@
 .mainContent .postQuestion button {
   height: 4vh;
   margin: 2px 8px auto auto;
+}
+
+.col-container {
+  display: table;
+  width: 100%;
+}
+
+.col1 {
+  display: table-cell;
+  padding: 16px;
 }
 
 .customPagination {
