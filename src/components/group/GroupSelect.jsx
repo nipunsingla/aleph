@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {ListGroup, Row, Col, Container} from 'react-bootstrap';
+import {ListGroup, Row, Col, Container,Media} from 'react-bootstrap';
 import AddGroup from './AddGroup'
 export default class GroupSelect extends Component {
     state = {
@@ -35,16 +35,16 @@ export default class GroupSelect extends Component {
                 <Container fluid>
                     <Row>
                         <Col>
-                            <h1>Groups</h1>
+                            <h2>Groups</h2>
                         </Col>
                     </Row>
                     <Row>
                         <ListGroup defaultActiveKey="#link1" variant="flush" className="groupList">
                             {this.state.groups.map((group, idx) => {
                                 return (
-                                    <ListGroup.Item action key={idx} href={"#link"+(idx+1)} className="groupList-elem">
+                                    <ListGroup.Item action key={idx} href={"#link"+(idx+1)} className="groupList-elem w-2">
                                         <Container fluid>
-                                            <Row>
+                                            <Row >
                                                 <Col>
                                                     <img src={group.url} className="groupPic"></img>    
                                                 </Col>
@@ -66,7 +66,11 @@ export default class GroupSelect extends Component {
                         </ListGroup>
                     </Row>
                     <Row>
-                        <AddGroup Add={this.Add.bind(this)}/>
+                    
+                    
+                <AddGroup Add={this.Add.bind(this)}>
+                
+            </AddGroup>
                     </Row>
                     <Row>
                         <h1>Assignments</h1>
