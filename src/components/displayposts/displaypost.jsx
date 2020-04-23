@@ -28,8 +28,8 @@ export const DisplayPosts=({data})=>{
     const currPageQuestions = data.slice(firstIndex, lastIndex);    
   
     return(
-    <div className='row'>
-    <div className='col-sm'>
+    <div className='ml-auto row' >
+    <div className='col-sm-6'>
         <Posts posts = {currPageQuestions} loading ={loading}/>
         <CustomPagination 
                         postsPerPage = {postsPerPage} 
@@ -39,7 +39,7 @@ export const DisplayPosts=({data})=>{
                     />
                         </div>
 
-            <div className='col-sm'>
+            <div className='col-sm-2'>
                 <h2>
                     Discussions
                 </h2>

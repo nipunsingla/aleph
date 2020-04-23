@@ -47,8 +47,8 @@ class PostPage extends React.Component {
     render() {
         return (
             <div>
-                <div className='p-auto m-auto row bg-light'>
-                    <button className='align-center col-sm btn btn-light'>
+                <div className='ml-auto row bg-light'>
+                    <button className='col-sm btn btn-light'>
                         Post
                 </button>
 
