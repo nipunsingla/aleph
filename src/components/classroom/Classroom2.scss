@@ -1,0 +1,73 @@
+.padding-0{
+    padding-right:0;
+    padding-left:0;
+}
+.nav, .content, .classrooms{
+    border: black solid 1px;
+    height: 100%;
+}
+
+.nav{
+    display: block;
+    text-align: center;
+    .navIcon{
+        color: black
+    }
+    i{
+        font-size: 3em;
+        // border: black solid 1px;
+    }
+}
+
+.content_header{
+    background-color: lighten($color: #ed3474, $amount: 2);
+    color: white;
+    height: 20vh;
+    h1{
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+
+    p{
+        margin-top: 20px;
+        margin-left: 20px;
+        font-size: 18px;
+    }
+}   
+
+.classroomNavbar{
+    width: 100%;
+    background-color: lighten($color: #ed3474, $amount: 2);
+    font-size: 18px;
+}
+
+.mainContent{
+    color: black;
+    text-align: center;
+    background-color: lighten($color: gray, $amount: 40);
+    height: 100%;
+    width: 100%;
+    .postQuestion{
+        margin-top:20px;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 9fr 1fr;
+        input{
+            width: 98%;
+            border-radius: 10px;
+            height: 5vh;
+            padding: 10px;
+        }
+        button{
+            height: 4vh;
+            margin: 2px 8px auto auto;
+        }
+    }
+}
+
+.customPagination{
+    background-color: #e6e6e6;
+    width: 100%;
+    text-align: center;
+}
+    
