@@ -1,6 +1,9 @@
 import React from 'react';
-import './style.css';
-import CloseIcon from '@material-ui/icons/Close';
+
+import Dropdown from 'react-dropdown';
+import styled from 'styled-components';
+import { FormControl, Modal, Button, InputGroup, } from 'react-bootstrap';
+import 'react-dropdown/style.css';
 class Popup extends React.Component {
     constructor(props){
         super(props);
@@ -31,7 +34,8 @@ class Popup extends React.Component {
     }
     render() {
         return (
-            <div className='popup w-10 h-10'>
+          /*}  <div className='modal-body popup w-10 h-10'>
+                {/* <Modal>
                  <button className='float-right' onClick={this.props.closePopup}>
                         <CloseIcon/>
                     </button>
@@ -52,8 +56,49 @@ class Popup extends React.Component {
                
                           
                         </div>
-                        </div>
+                        </Modal>
+
+                        </div> }*/
+                        <div>
+
+            <Modal className="w-5" show={true} onHide={this.props.closePopup} animation={false}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Create a Post</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div><label htmlFor="basic-url">Enter title</label></div>
+                    
+                        <InputGroup onChange={this.body.bind(this)} style={{ 'height': '10vh', 'width': '21vw' }} className="mb-3" size="lg">
+                            <FormControl
+                                placeholder="Add title..."
+                                aria-label="groupName"
+                                aria-describedby="basic-addon2"
+                            />
+                        </InputGroup>
+
+                        <div><label htmlFor="basic-url">Enter details..</label></div>
+                    
+                        <InputGroup onChange={this.title.bind(this)} style={{ 'height': '10vh', 'width': '21vw' }} className="mb-3" size="lg">
+                            <FormControl
+                                placeholder="Add detail..."
+                                aria-label="groupName"
+                                aria-describedby="basic-addon2"
+                            />
+                        </InputGroup>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={this.Add.bind(this)}>
+                        Add
+            </Button>
+                    <Button variant="primary" onClick={this.props.closePopup}>
+                        Close Without Adding
+            </Button>
+                </Modal.Footer>
+            </Modal>
+            </div>
+
         );
+
     }
 }
 
