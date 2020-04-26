@@ -15,7 +15,9 @@ class GroupDetail extends React.Component {
     render() {
         return (
             <div>
-                <div className="text-light card bg-primary" style={{ 'max-width': '100vw' }}>
+                <div className="text-light card bg-primary" style={{ 'max-width': '100vw'
+                ,height:'27vh'
+            }}>
                     <div className="row no-gutters m-auto">
                         <div className="col-sm-4">
                             <img style={{ 'height': '20vh', 'width': '15vw' }} src="https://www.publicdomainpictures.net/pictures/270000/velka/avatar-people-person-business-.jpg" className="card-img rounded-circle mt-1" alt="..." />
