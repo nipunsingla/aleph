@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {ListGroup, Row, Col, Container} from 'react-bootstrap';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import AddGroup from './AddGroup';
-
 export default class GroupSelect extends Component {
     state = {
         groups: [
@@ -23,6 +22,12 @@ export default class GroupSelect extends Component {
 
     clickEvent = (name) =>{
         console.log(name);
+    }
+    Add(obj){
+        this.state.groups.push(obj);
+        this.setState({
+            groups:this.state.groups
+        })
     }
 
     seeAllGroups = () =>{

@@ -1,0 +1,82 @@
+.padding-0 {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.nav, .content, .classrooms {
+  border: black solid 1px;
+  height: 100%;
+}
+
+.nav {
+  display: block;
+  text-align: center;
+}
+
+.nav .navIcon {
+  color: black;
+}
+
+.nav i {
+  font-size: 3em;
+}
+
+.content_header {
+  background-color: #ee3d7a;
+  color: white;
+  height: 20vh;
+}
+
+.content_header h1 {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.content_header p {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+.classroomNavbar {
+  width: 100%;
+  background-color: #ee3d7a;
+  font-size: 18px;
+}
+
+.mainContent {
+  color: black;
+  text-align: center;
+  background-color: #e6e6e6;
+  height: 100%;
+  width: 100%;
+}
+
+.mainContent .postQuestion {
+  margin-top: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -ms-grid-columns: 9fr 1fr;
+      grid-template-columns: 9fr 1fr;
+}
+
+.mainContent .postQuestion input {
+  width: 98%;
+  border-radius: 10px;
+  height: 5vh;
+  padding: 10px;
+}
+
+.mainContent .postQuestion button {
+  height: 4vh;
+  margin: 2px 8px auto auto;
+}
+
+.customPagination {
+  background-color: #e6e6e6;
+  width: 100%;
+  text-align: center;
+}
+/*# sourceMappingURL=Classroom2.css.map */

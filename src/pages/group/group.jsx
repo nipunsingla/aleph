@@ -30,8 +30,10 @@ class Group extends React.Component{
                         </Col>
                     
                         <Col className="padding-0" xs lg={8}>
+                            <div className='row-sm padding-0'>
                             <GroupDetail />
                             <PostPage />
+                            </div>
                         </Col>
                     </Row>
                 </Container>

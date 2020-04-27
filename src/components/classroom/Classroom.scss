@@ -1,0 +1,104 @@
+.classroomGrid{
+    display: grid;
+    grid-template-columns: 5% 19% 76%;
+
+    .nav{
+        justify-content: center;
+        background-color:#FFFDD0;
+        div:nth-of-type(1){
+            top: 2vh;
+            position: relative;
+            height: 65px;
+            margin: 0px;
+        }
+        div:nth-of-type(2){
+            position: relative;
+            top: -38vh;
+            height: 65px;
+            margin: 0px;
+        }
+        i{
+            font-size: 4rem;
+        }      
+    }
+
+    .sidebar{
+        background-color: white;
+    }
+}
+
+.classroomGrid > div{
+    border : black solid 1px;
+    height: 100vh;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: 20% 6% 24% 25% 25%;
+    
+    .content_header{
+        grid-column: 1/5;
+        grid-row: 1/2;
+        background-color: lighten($color: #ed3474, $amount: 2);
+        color: white;
+        h1{
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        p{
+            margin-top: 20px;
+            margin-left: 20px;
+            font-size: 18px;
+        }
+    }   
+
+    .main_content{
+        grid-column: 1/4;
+        grid-row: 3/6;
+        color: black;
+        text-align: center;
+        background-color: lighten($color: gray, $amount: 40);
+        display: grid;
+        grid-template-columns: 1fr;
+
+        .postQuestion{
+            margin-top:20px;
+            display: grid;
+            grid-template-rows: 1fr;
+            grid-template-columns: 9fr 1fr;
+            input{
+                width: 98%;
+                border-radius: 10px;
+                height: 5vh;
+                padding: 10px;
+            }
+            button{
+                height: 4vh;
+                margin: 2px 8px auto auto;
+            }
+
+        }
+        //border: black solid 3px;
+    }
+    .discussion{
+        grid-column: 4/5;
+        grid-row:3/6;
+        color:black;
+        background-color: white;
+        //border: black solid 3px;
+    }
+
+    .classroomNav{
+        grid-row:2/3;
+        grid-column: 1/5;
+        margin:0px;
+
+        .classroomNavbar{
+            background-color: lighten($color: #ed3474, $amount: 2);
+            font-size: 18px;
+        }
+    }
+}
+
