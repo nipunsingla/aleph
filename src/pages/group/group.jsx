@@ -31,9 +31,9 @@ class Group extends React.Component{
                     
                         <Col className="padding-0" xs lg={8}>
                             <div className='row-sm padding-0'>
-                            <GroupDetail />
-                            <PostPage />
+                            <GroupDetail className='h-60' />
                             </div>
+                            <PostPage />
                         </Col>
                     </Row>
                 </Container>
