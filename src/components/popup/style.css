@@ -1,27 +1,7 @@
-.popup {  
-    position: fixed;  
-    width: 60%;  
-    height: 60%;  
-    top: 0;  
-    left: 0;  
-    right: 0;  
-    bottom: 0;  
-    margin: auto;  
-    background-color: rgba(0,0,0, 0.8);  
-    color:white;
-    padding-top:10vh;
-    padding-left:10vw;
-    padding-right:10vw;
-    border-width: 10%;
-    border-radius: 4%;
-  }  
-  .popup\_inner {  
-    position: absolute;  
-    left: 25%;  
-    right: 25%;  
-    top: 25%;  
-    bottom: 25%;  
-    margin: auto;  
-    border-radius: 20px;  
-    background: white;  
-  }
+.design{
+  color:black;
+  background-color: rgb(167, 212, 230);
+  border-radius: 10px;
+  padding:'3rem';
+  text-align: center;
+}

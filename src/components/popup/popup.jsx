@@ -1,12 +1,29 @@
 import React from 'react';
-
+import './style.css'
 import Dropdown from 'react-dropdown';
 import styled from 'styled-components';
 import { FormControl, Modal, Button, InputGroup, } from 'react-bootstrap';
 import 'react-dropdown/style.css';
+import ProfileIcon from '../ProfileIcon/ProfileIcon'
+import VideocamIcon from '@material-ui/icons/Videocam';
+import FolderIcon from '@material-ui/icons/Folder';
+import PollIcon from '@material-ui/icons/Poll';
+import GifRoundedIcon from '@material-ui/icons/GifRounded';
+import PermMediaRoundedIcon from '@material-ui/icons/PermMediaRounded';
+import PhotoSizeSelectActualRoundedIcon from '@material-ui/icons/PhotoSizeSelectActualRounded';
+
+
+
+
+
+import SendRoundedIcon from '@material-ui/icons/SendRounded'
+
+
+
+
 class Popup extends React.Component {
     constructor(props){
-        super(props);
+        super();
         this.state={
                 userId:'1',
                 id:'1',
@@ -61,37 +78,113 @@ class Popup extends React.Component {
                         </div> }*/
                         <div>
 
-            <Modal className="w-5" show={true} onHide={this.props.closePopup} animation={false}>
+            <Modal className="w-5 h-100" show={true} onHide={this.props.closePopup} animation={false}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Create a Post</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <div><label htmlFor="basic-url">Enter title</label></div>
-                    
-                        <InputGroup onChange={this.body.bind(this)} style={{ 'height': '10vh', 'width': '21vw' }} className="mb-3" size="lg">
-                            <FormControl
-                                placeholder="Add title..."
-                                aria-label="groupName"
-                                aria-describedby="basic-addon2"
-                            />
-                        </InputGroup>
 
-                        <div><label htmlFor="basic-url">Enter details..</label></div>
+
+<div className='row'>
+    
+
+    <div className='col-sm-3'>
+
+    <ProfileIcon/>
+    </div>
+    <div className='col-sm-4'>
+               <h5>     sagar</h5>
                     
-                        <InputGroup onChange={this.title.bind(this)} style={{ 'height': '10vh', 'width': '21vw' }} className="mb-3" size="lg">
-                            <FormControl
-                                placeholder="Add detail..."
-                                aria-label="groupName"
-                                aria-describedby="basic-addon2"
-                            />
-                        </InputGroup>
+
+            <h6 className='text-muted'>   student,NIT kurukshetra</h6> 
+    </div>
+    <div className='row col-sm float-right'>
+                
+                   <h6>
+
+                   <span style={{
+                       display: 'inline-block',
+                       borderRadius: '50%',
+                       width: '50%',
+                       backgroundColor: 'red',
+                       height: '15px',
+                       width: '15px',
+                       marginTop:'10px'
+                     
+                   }} >
+                  
+                   </span>  
+                    go live
+                  
+                    <VideocamIcon color={'primary'}/>
+                </h6>
+    </div>
+                    </div>
+                    
+
+                </Modal.Header>
+                <Modal.Body className='h-50'>
+                    <div className='row'>
+                        To <span className='text-primary ml-1'>
+                            
+                            {`MATHEMATICS 101`}
+                            </span>
+                    </div>
+                    <div className='row'>
+                    <input     placeholder="Your Post Here..."
+                             onChange={this.body.bind(this)} style={{ marginBottom:'40vh', 'width': '100vw' ,borderStyle:'none'}} className="mb-3" size="lg">
+                            </input>
+                    </div>
+
+
+
+
+
+
+
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={this.Add.bind(this)}>
-                        Add
+                <Modal.Header/>
+
+<Modal.Body>
+<div className='row Container'>
+                        <div className='col-sm-3 design ml-3'>
+                
+                        <FolderIcon color={'light'} />
+                        files
+                        </div>
+                        <div className='col-sm-3 design ml-3'>
+                            <PollIcon/>
+                    poll
+                        </div>
+                        <div className='col-sm-3 design ml-3'>
+                            <GifRoundedIcon color={'light'}/>
+                    Gifs
+                        </div>
+                    </div>
+                    <div className='row mt-1'>
+                    
+                    <div className='col-sm-3 design ml-3'>
+
+                    <FolderIcon color={'light'}/>
+                        files
+                        </div>
+                        <div className='col-sm-3 design ml-3'>
+                            <PhotoSizeSelectActualRoundedIcon color={'light'}/>
+                    photos
+                        </div>
+                    </div>
+
+</Modal.Body>
+
+
+                <Modal.Footer >
+                
+                <h6 className='text-muted col'> 
+                    101 will see this
+                </h6>
+
+                    <Button     variant="primary" onClick={this.Add.bind(this)}>
+                        Post
             </Button>
                     <Button variant="primary" onClick={this.props.closePopup}>
-                        Close Without Adding
+       <SendRoundedIcon color={'inherit'}/>
             </Button>
                 </Modal.Footer>
             </Modal>
