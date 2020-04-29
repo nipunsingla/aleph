@@ -6,7 +6,22 @@ import EditIcon from '@material-ui/icons/Edit';
 import SettingsIcon from '@material-ui/icons/Settings';
 import CallEndIcon from '@material-ui/icons/CallEnd';
 import profile_group from '../../../icons/profile_group.svg';
+import EditGroup from '../EditGroup/EditGroup';
+
 class GroupDetail extends React.Component {
+    constructor(){
+        super();
+        this.state={
+            editPopup:false
+        }
+    }
+
+    CallEditPopup(){
+        this.setState({
+            editPopup:!this.state.editPopup
+        })
+    }
+
 
     ButtonStyle = {
         color: 'white',
@@ -35,8 +50,12 @@ class GroupDetail extends React.Component {
                                 <div className='float-right d-inline'>
                                     <NotificationsNoneIcon fontSize="large" />
                                     <h6 className='pl-3 pr-3 py-1 d-inline mx-3' style={{ backgroundColor: 'rgb(240,243,244,0.6)', opacity: '1', color: 'white', width: '5vw', height: '5vh', 'border-radius': '12px' }}>follow</h6>
-                                    <EditIcon fontSize="large" />
+                          
 
+<EditIcon onClick={this.CallEditPopup.bind(this)} fontSize="large" />
+{
+    this.state.editPopup?<EditGroup CallEditPopup={this.CallEditPopup.bind(this)}/>:null
+}
                                 </div>
                             </div>
                             <p>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -55,3 +74,21 @@ class GroupDetail extends React.Component {
     }
 }
 export { GroupDetail };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
