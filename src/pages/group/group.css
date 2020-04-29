@@ -1,18 +1,75 @@
+.groups {
+  border: black solid 1px;
+  height: 100%;
+  background-color: #e8f4f8;
+}
+
+.groups h2 {
+  margin-left: 0.8rem;
+  font-weight: 600;
+}
+
 .groupList {
   width: 100%;
 }
 
 .groupList-elem {
   width: 100%;
+  background-color: #e8f4f8;
+}
+
+.groupList-elem .active a.list-group-item {
+  background-color: red;
 }
 
 .groupList-elem .groupPic {
-  height: 75px;
-  width: 75px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
 }
 
 .groupList-elem .groupActivity {
   margin-left: 2rem;
+}
+
+.groupList-elem .groupSelectGrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 5fr 1fr;
+      grid-template-columns: 1fr 5fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
+.groupList-elem .groupSelectGrid .groupName {
+  margin-top: 0.6rem;
+  margin-left: 0.8rem;
+}
+
+.groupList-elem .groupSelectGrid .horizDots {
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.customSeeAll {
+  font-size: 20px;
+}
+
+.groupSearchInput {
+  background-color: #e8f4f8;
+  width: 90%;
+}
+
+.addGroup {
+  width: 100%;
+}
+
+.addGroup .addGroupButton .addPlus {
+  border-radius: 50%;
+  background-color: #3f50b5;
+  color: white;
+  cursor: pointer;
+  font-size: 48px;
+  margin-left: 1.5rem;
 }
 /*# sourceMappingURL=group.css.map */

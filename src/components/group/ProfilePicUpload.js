@@ -42,6 +42,7 @@ function ProfilePicUpload() {
                 onClick={() => imageUploader.current.click()}
             >
                 <img
+                    className="card-img rounded-circle mt-1 mb-1"
                     ref={uploadedImage}
                     src="https://img.icons8.com/ios-filled/30/000000/conference-call.png"
                     border-radius="100%"

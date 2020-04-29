@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Dropdown from 'react-dropdown';
 import styled from 'styled-components';
-import { FormControl, Modal, Button, InputGroup, Media } from 'react-bootstrap';
+import { FormControl, Modal, Button, InputGroup } from 'react-bootstrap';
 import 'react-dropdown/style.css';
 import ProfilePicUpload from './ProfilePicUpload';
+import AddIcon from '@material-ui/icons/Add';
 
-function AddGroup(props) {
+function AddGroup() {
 
     const options = [
         { value: 'public', label: 'public' },
@@ -21,11 +22,7 @@ function AddGroup(props) {
     const defaultOption = options[0];
 
     const [show, setShow] = useState(false);
-    const handleClose = () =>{
-        
-        setShow(false);
-        props.Add({name:'abcd',url:'xys'});
-    }
+    const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const StyledDiv = styled.div`
@@ -35,18 +32,14 @@ function AddGroup(props) {
 
 
     return (
-        <div>
+        <div className="addGroup">
+            <div className="addGroupButton">
+                <AddIcon className="addPlus" onClick={handleShow}/>
+                <a onClick={handleShow} className="text-primary btn">
+                    Add a new group
+                </a>
+            </div>
 
-<Media  as='li' className='mr-3 mt-2'>
-            <svg onClick={handleShow} className="bi bi-plus-circle-fill " width="3em" height="2.3em" viewBox="0 0 16 16" fill="blue" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M16 8A8 8 0 110 8a8 8 0 0116 0zM8.5 4a.5.5 0 00-1 0v3.5H4a.5.5 0 000 1h3.5V12a.5.5 0 001 0V8.5H12a.5.5 0 000-1H8.5V4z" clip-rule="evenodd"/>
-                </svg>
-                <Media.Body>
-                    <h5 className='float-left ml-5 mt-2'>
-                        ADD Group
-                    </h5>
-                    </Media.Body>
-</Media>
             <Modal className="w-5" show={show} onHide={handleClose} animation={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Create a Group</Modal.Title>
@@ -82,15 +75,15 @@ function AddGroup(props) {
                 </Modal.Body>
                 <Modal.Footer className='float-right d-inline'>
                     <h5 className='d-inline'>Additional Settings</h5>
-                    <img className=' d-inline' src="https://img.icons8.com/material-sharp/24/000000/settings.png" />
+                    <img className='d-inline' src="https://img.icons8.com/material-sharp/24/000000/settings.png" />
                 </Modal.Footer>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
-            </Button>
+                    </Button>
                     <Button variant="primary" onClick={handleClose}>
                         Save Changes
-            </Button>
+                    </Button>
                 </Modal.Footer>
             </Modal>
         </div>
