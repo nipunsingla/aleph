@@ -1,3 +1,11 @@
 .App{
     overflow-x: hidden;
 }
+
+.searchBar{
+    background-color: lightgray;
+}
+.searchBarInput{
+    width: 90%;
+    background-color: lightgray;
+}
