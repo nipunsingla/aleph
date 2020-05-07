@@ -4207,6 +4207,11 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+emoji-picker-react@^3.1.6:
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/emoji-picker-react/-/emoji-picker-react-3.1.6.tgz#004ae3bef22e700b314d8a73274eaacde34f010d"
+  integrity sha512-2iACwlf9UqCLY+7UL6iXH3zeDj4RA4Cdm5t2Sj7Ub4QSJPR1GhbW8ldoutADPnxu4Wf1X3Uy9m2HqdoaNC/9eQ==
+
 emoji-regex@^7.0.1, emoji-regex@^7.0.2:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
@@ -9642,6 +9647,11 @@ react-bootstrap@^1.0.0:
     react-transition-group "^4.0.0"
     uncontrollable "^7.0.0"
     warning "^4.0.3"
+
+react-custom-scroll@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/react-custom-scroll/-/react-custom-scroll-4.2.0.tgz#171d8128ef505cf7d45e5aa9ff1d5b31243bd971"
+  integrity sha512-+qpOKJdNfGYkoEydlJmb7R9LyXYw+ufWSouIyKX1uIAHdxsjigp1cLmjFhU1Db+6uzwvGf92YW9ry8gdTHHSdg==
 
 react-dev-utils@^10.2.1:
   version "10.2.1"
