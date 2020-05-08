@@ -1,0 +1,136 @@
+.classroomGrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5% 19% 76%;
+      grid-template-columns: 5% 19% 76%;
+}
+
+.classroomGrid .nav {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #FFFDD0;
+}
+
+.classroomGrid .nav div:nth-of-type(1) {
+  top: 2vh;
+  position: relative;
+  height: 65px;
+  margin: 0px;
+}
+
+.classroomGrid .nav div:nth-of-type(2) {
+  position: relative;
+  top: -38vh;
+  height: 65px;
+  margin: 0px;
+}
+
+.classroomGrid .nav i {
+  font-size: 4rem;
+}
+
+.classroomGrid .sidebar {
+  background-color: white;
+}
+
+.classroomGrid > div {
+  border: black solid 1px;
+  height: 100vh;
+}
+
+.content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (25%)[4];
+      grid-template-columns: repeat(4, 25%);
+  -ms-grid-rows: 20% 6% 24% 25% 25%;
+      grid-template-rows: 20% 6% 24% 25% 25%;
+}
+
+.content .content_header {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1/5;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  background-color: #ee3d7a;
+  color: white;
+}
+
+.content .content_header h1 {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.content .content_header p {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+.content .main_content {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1/4;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 3;
+  grid-row: 3/6;
+  color: black;
+  text-align: center;
+  background-color: #e6e6e6;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+.content .main_content .postQuestion {
+  margin-top: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  -ms-grid-columns: 9fr 1fr;
+      grid-template-columns: 9fr 1fr;
+}
+
+.content .main_content .postQuestion input {
+  width: 98%;
+  border-radius: 10px;
+  height: 5vh;
+  padding: 10px;
+}
+
+.content .main_content .postQuestion button {
+  height: 4vh;
+  margin: 2px 8px auto auto;
+}
+
+.content .discussion {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4/5;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 3;
+  grid-row: 3/6;
+  color: black;
+  background-color: white;
+}
+
+.content .classroomNav {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-column: 1/5;
+  margin: 0px;
+}
+
+.content .classroomNav .classroomNavbar {
+  background-color: #ee3d7a;
+  font-size: 18px;
+}
+/*# sourceMappingURL=Classroom.css.map */
