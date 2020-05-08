@@ -84,13 +84,13 @@ export default class Chats extends Component {
     }
 
     render() {
-        const dActivekey = this.state.users.length !==0 ? "#" + this.state.users[0].Name : "#default";
+        const dActivekey = "/default";
         let _filter = this.state.state === "all" ? this.state.users.filter(user => user.unreadMessagesCount >= 0) :
         this.state.users.filter(user => user.unreadMessagesCount > 0);
 
         const content = _filter.map(user =>{
             return (
-                <ChatCard user={user}/>
+                <ChatCard user={user} onClick = {this.props.setUser}/>
             )
         });
         return (

@@ -4,10 +4,18 @@ import LeftBar from '../../components/LeftBar/LeftBar';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.min.css';
 import './ChatPage.css';
-import Chats from '../../components/chatpage/Chats'
+import Chats from '../../components/chatpage/Chats';
 
 
 export default class ChatBase extends Component {
+    state = {
+        userChatId: "defulalt"
+    }
+    setUser = (user) =>{
+        this.setState({
+            userChatId : user 
+        });
+    }
     render() {
         return (
             <div>
@@ -18,12 +26,12 @@ export default class ChatBase extends Component {
                 </Col>
                 <Col lg={2}>
                     <SimpleBar className="chats">
-                        <Chats />                        
+                        <Chats setUser = {this.setUser}/>                        
                     </SimpleBar>
                 </Col>
                 <Col lg={9}>
                     <SimpleBar className="chatSection">
-                        <h1>Chat Section Here</h1>            
+                        <h1>{this.state.userChatId} Chat here</h1>
                     </SimpleBar>
                 </Col>  
                 </Row>

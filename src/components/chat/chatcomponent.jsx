@@ -2,8 +2,6 @@ import React from 'react';
 import './chat.css'
 import CustomScroll from 'react-custom-scroll';
 export const Chat = ({ chat, user }) => (
-
-
     <CustomScroll>
             {
 

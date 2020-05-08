@@ -5,7 +5,6 @@ export const SearchBar = () => {
         <div>
             <div className='my-3 p-2 searchBar' style={
                 {
-                    'border-style':'solid',
                     'border-radius':'14px',
                     'width' : '100%'
                 }}>

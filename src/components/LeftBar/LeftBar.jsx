@@ -21,7 +21,6 @@ class LeftBar extends React.Component {
     }
 
     render() {
-        console.log(">" + this.state.groupSelectShow)
         return (
             <div >
                 <Profile />
