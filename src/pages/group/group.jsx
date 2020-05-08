@@ -26,7 +26,7 @@ class Group extends React.Component{
                         </Col>
                     
                         <Col className="padding-0" xs lg={3}>
-                            <GroupSelect/>
+                            <GroupSelect />
                         </Col>
                     
                         <Col className="padding-0" xs lg={8}>
