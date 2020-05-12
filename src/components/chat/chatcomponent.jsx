@@ -5,8 +5,7 @@ export const Chat = ({ chat, user ,wid}) => (
 
     <div style={{
         height:wid+'vh',
-        overflow:'auto',
-        overflowX:'hidden'
+        overflow:'auto'
     }}
     >
             {

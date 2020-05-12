@@ -24,12 +24,12 @@ export default class ChatBase extends Component {
                 <Col className="border" lg={1}>
                     <LeftBar/>
                 </Col>
-                <Col lg={2}>
+                <Col lg={3}>
                     <SimpleBar className="chats">
                         <Chats setUser = {this.setUser}/>                        
                     </SimpleBar>
                 </Col>
-                <Col lg={9} >
+                <Col lg={8} >
                     <div className="chatSection">
                         <RightChatComponent name={this.setUser} />
                     </div>
