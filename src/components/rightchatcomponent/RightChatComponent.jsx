@@ -95,7 +95,7 @@ class RightChatComponent extends React.Component {
     }
     render() {
         return (
-            <div style={{overflow:'hidden'}}>
+            <div style={{overflow:'hidden',borderWidth:'0 0 0px 1px',borderStyle:'solid'}}>
                 <div className='row'>
                     <div className='col-sm-6'>
                         <ul className="float-left list-group list-group-horizontal">
@@ -104,7 +104,7 @@ class RightChatComponent extends React.Component {
 
                             </li>
                             <li className="border-0 my-auto" style={{width:'5vw'}}>
-                                <h3>{this.props.name}
+                                <h3> WebD
 </h3>
 
                             </li>
@@ -124,7 +124,12 @@ class RightChatComponent extends React.Component {
                     <div className='col-sm-4 my-auto'>
                         <ul className="list-group list-group-horizontal">
                             <li className='list-group-item border-0'><span> Post</span></li>
-                            <li className="list-group-item border-0"><span> Chat</span></li>
+                            <li style={{
+                                borderStyle:'solid',
+                                backgroundColor:'silver',
+                                borderRadius:'30px',
+                                cursor:'pointer'
+                            }}className="list-group-item border-0"><span> Chat</span></li>
                             <li className="list-group-item border-0"><span> Files</span></li>
                             <li className="list-group-item border-0"><span> More </span></li>
                         </ul>
