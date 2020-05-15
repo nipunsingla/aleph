@@ -1,0 +1,72 @@
+
+.groups{
+    border: black solid 1px;
+    height: 100%;
+    background-color: lighten($color: #ADD8E6, $amount: 15);
+    // position:fixed;
+    // top:0;
+    // margin-top: 4.4rem;
+    h2{
+        margin-left: 0.8rem;
+        font-weight: 600;
+    }
+}
+.groupList{
+    width: 100%;
+}
+
+
+.groupList-elem{
+    width: 100%;
+    background-color: lighten($color: #ADD8E6, $amount: 15);
+    .active a.list-group-item { background-color: red;}
+    .groupPic{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%
+    }
+    .groupActivity{
+        margin-left: 2rem;
+    }
+    .groupSelectGrid{
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr;
+        grid-template-rows: 1fr;
+
+        // div{
+        //     border: #333 1px solid;
+        // }
+        .groupName{
+            margin-top: 0.6rem;
+            margin-left: 0.8rem;
+        }
+        .horizDots{
+            margin-top: 0.5rem;
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.customSeeAll{
+    font-size: 20px;
+}
+
+.groupSearchInput{
+    background-color: lighten($color: #ADD8E6, $amount: 15);
+    width: 90%;
+}
+
+.addGroup{
+    width: 100%;
+
+    .addGroupButton{
+        .addPlus{
+            border-radius: 50%;
+            background-color: #3f50b5;
+            color: white;
+            cursor: pointer;
+            font-size: 48px;
+            margin-left: 1.5rem;
+        }
+    }
+}
