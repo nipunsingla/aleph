@@ -4,7 +4,7 @@ import {GroupDetail} from '../../components/group/groupdetail/groupdetail';
 import {FeedPost} from '../../components/feedpost/post';
 import {Container, Row, Col} from 'react-bootstrap';
 import LeftBar from '../../components/LeftBar/LeftBar';
-import GroupSelect from '../../components/group/GroupSelect';
+import FeedSelect from '../../components/feedSelect/FeedSelect';
 import {FeedCard} from '../../components/feedCard/feedCard'
 import './group.css';
 
@@ -27,7 +27,7 @@ class Feed extends React.Component{
                         </Col>
                     
                         <Col className="padding-0" xs lg={3}>
-                            <GroupSelect />
+                            <FeedSelect />
                         </Col>
                     
                         <Col className="padding-0" xs lg={8}>
