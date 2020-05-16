@@ -1,3 +1,39 @@
+.toFeed {
+  width: 100%;
+  text-decoration: none;
+  color: black;
+}
+
+.newsFeed {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.newsFeed:hover {
+  background-color: #c1e1ec;
+}
+
+.newsFeed .block {
+  display: block;
+}
+
+.newsFeed img {
+  margin-left: 1.1rem;
+}
+
+.newsFeed h5, .newsFeed p {
+  display: inline;
+  font-size: 1.5rem;
+}
+
+.newsFeed span {
+  position: relative;
+  font-size: 2rem;
+  top: 0.6rem;
+}
+
 .groups {
   border: black solid 1px;
   height: 100%;
