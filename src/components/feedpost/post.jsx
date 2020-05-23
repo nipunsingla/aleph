@@ -60,7 +60,7 @@ class FeedPost extends React.Component {
     <div className="row border-4 m-auto " >
                     <ReactPlayer url='https://youtu.be/rlR4PJn8b8I' controls light volume playsinline  playing width='100%' height='20vh'/>
                 </div>
-                <div className='row my-4 bg-light'>
+                <div className='row my-4 mx-auto bg-light'>
 
     <ProfileIcon className='col-sm-3'/>
                <h5 onClick={this.togglePopup.bind(this)} className='col-sm-8 text-muted mt-4'>Your Post Here.....</h5>  
@@ -70,7 +70,7 @@ class FeedPost extends React.Component {
                 <PhotoLibraryTwoToneIcon color='primary' fontSize='large' className='col-sm-1 my-auto'/>
 </div>
                     {this.state.loading ?
-                        <div className='row'>
+                        <div>
                             <DisplayPosts data={this.state.res} />
                         </div> : null
 

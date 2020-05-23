@@ -6,6 +6,7 @@ import { Group } from './pages/group/group'
 import ChatBase from './pages/chat/ChatBase'
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
+import {statusPage} from './pages/statusPage/statusPage'
 import {Feed} from './pages/feed/feed'
 function App() {
   const { loading } = useAuth0();
@@ -23,6 +24,7 @@ function App() {
             <Route path='/classroom' component={Classroom2} />
             <Route path='/group' component={Group} />
             <Route path='/chat' component={ChatBase} />
+            <Route path='/status' component={statusPage}/>
             <Route path='/feed' component={Feed}/>
           </Switch>
         </Router>
