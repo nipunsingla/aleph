@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {Posts} from './Posts'
 import {CustomPagination} from '../../components/pagination/Pagination'
+import SimpleBar from 'simplebar-react';
 export const DisplayPosts=({data})=>{
 
     const [questions, setQuestions] = useState(data);
@@ -29,10 +30,12 @@ export const DisplayPosts=({data})=>{
   
     return(
     <div>
-    <div>
+    <div  >
 
-        <Posts posts = {currPageQuestions} loading ={loading}/>
-        <CustomPagination 
+<SimpleBar>
+        <Posts  posts = {currPageQuestions} loading ={loading}/>
+        </SimpleBar>
+        <CustomPagination className="fixed-bottom"
                         postsPerPage = {postsPerPage} 
                         totalPosts = {questions.length} 
                         currPage ={currPage} 
