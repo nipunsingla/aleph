@@ -1,16 +1,51 @@
 import React ,{Component} from 'react';
+import {RightStatusPage} from '../../components/rightstatuspage/rightstatuspage';
+import DummyRightStatusPage from './DummyRightStatusPage';
+import {Container, Row, Col} from 'react-bootstrap';
+import LeftBar from '../../components/LeftBar/LeftBar';
+import StatusSelect from '../../components/statusselect/StatusSelect';
+import SimpleBar from 'simplebar-react';
+import './status.css';
 
-import Stories from 'react-insta-stories'
-import GroupSelect from '../../components/group/GroupSelect';
-import {RightStatusPage} from '../../components/rightstatuspage/rightstatuspage'
-class statusPage extends React.Component{
+class statusPage extends Component{
+    state = {
+        current: "Default"
+    }
+    
+    onClickAllStatus = (name) =>{
+        this.setState({
+            current: name
+        });
+    }
+
     render(){
-        return(
-            <div className='row'>
-                <div className='col-sm-12'>
-                <RightStatusPage/>
+        const {current} = this.state;
 
-                </div>
+        return(
+            <div>
+                <Container fluid>
+                    <Row className="page">
+                        <Col className="padding-0" >
+                            <div className='nav'>
+                                <LeftBar/>
+                            </div>
+                        </Col>
+                    
+                        <Col className="padding-0" lg={3}>
+                            <SimpleBar className="status border">
+                                <StatusSelect onClickAllStatus={this.onClickAllStatus}/>
+                            </SimpleBar>
+                            
+                        </Col>
+                    
+                        <Col className="padding-0" lg={8}>
+                            <div className="statusSection border">
+                                <DummyRightStatusPage current={current} />
+                                {/* <RightStatusPage /> */}
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
             </div>
         )
     }
