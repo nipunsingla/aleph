@@ -65,7 +65,7 @@ export default class StatusSelect extends Component {
             )
         });
         return (
-            <div>
+            <div style={{backgroundColor:'#262626',color:'white',height:'100vh'}}>
                 {/* -------Header --------*/}
                 <div className="statusHeader">
                     <div>

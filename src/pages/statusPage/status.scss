@@ -14,14 +14,21 @@
 //------------BASE--------
 // ## Dont change values - in order to maintain page design integrity
 .status{
-    width: 18vw;
+    width: 100%;
     height: 100vh;
     background-color: #262626;
     color: white;
     padding-left: 0.7rem;
     // left: -0.8vw;
 }
+.status1{
 
+    height: 100vh;
+    background-color: #262626;
+    color: white;
+    padding-left: 0.7rem;
+    // left: -0.8vw;
+}
 .StatusSection{
     margin-left: 10px;
 }
@@ -118,6 +125,7 @@
         margin-left: 0.8rem;
     }
 }
+
 
 .addStoryModal{
     .privacyButton{
