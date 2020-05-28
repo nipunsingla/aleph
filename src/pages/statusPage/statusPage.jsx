@@ -22,17 +22,17 @@ class statusPage extends Component{
         const {current} = this.state;
 
         return(
-            <div>
+            <div >
                 <Container fluid>
                     <Row className="page">
-                        <Col className="padding-0" >
+                        <Col className="padding-0"lg={1} >
                             <div className='nav'>
                                 <LeftBar/>
                             </div>
                         </Col>
                     
                         <Col className="padding-0" lg={3}>
-                            <SimpleBar className="status border">
+                            <SimpleBar className="border">
                                 <StatusSelect onClickAllStatus={this.onClickAllStatus}/>
                             </SimpleBar>
                             
@@ -40,7 +40,10 @@ class statusPage extends Component{
                     
                         <Col className="padding-0" lg={8}>
                             <div className="statusSection border">
-                                <DummyRightStatusPage current={current} />
+                                {
+                                    this.state.current=='Default'?<DummyRightStatusPage/>:
+                                    <RightStatusPage current={current} />
+                                }
                                 {/* <RightStatusPage /> */}
                             </div>
                         </Col>

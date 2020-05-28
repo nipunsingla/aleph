@@ -1,0 +1,31 @@
+.border1 {
+    background-color: #373737;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+
+    img {
+        align-self: center;
+        justify-content: center;
+        margin-top: 8vh;
+    }
+    h3 {
+        align-self: center;
+        color: #ababab;
+        justify-content: center;
+    
+    }
+    h2 {
+        align-self: center;
+
+        justify-content: center;
+        text-align: center;
+        margin-top: 20vh;
+        color: #eaeaea;
+        margin-left:1vw;
+    }
+}

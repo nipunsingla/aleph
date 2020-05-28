@@ -18,6 +18,7 @@ const Story = styled.img`
         height:40%;
     }
     `
+    const imgUrl="https://www.chatlineconnect.com/wp-content/uploads/2019/04/manhole1.jpg";
 const stories = [
     {
         url: 'https://picsum.photos/1080/1920',
@@ -81,7 +82,7 @@ class RightStatusPage extends Component {
         return (
             <div>
                 <div className='row'>
-                    <div className='col-offset-2 col-sm-9' style={{
+                    <div className='col-sm-9' style={{
                         backgroundImage: 'url("https://i2.wp.com/files.123freevectors.com/wp-content/original/110419-black-blurred-background-vector.jpg?w=800&q=95")',
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: 'cover'
@@ -114,7 +115,7 @@ class RightStatusPage extends Component {
                             <div className='col-sm-1' style={{ paddingTop: '20%' }}>
                                 <NavigateBeforeIcon style={{ backgroundColor: 'silver', width: '50px', height: '50px', borderStyle: 'solid', borderRadius: '100px', borderColor: 'silver' }} />
                             </div>
-                            <div className='col-sm-5'>
+                            <div className='col-sm-6'>
 
                                 <Stories
                                     stories={this.state.stories
@@ -161,7 +162,17 @@ class RightStatusPage extends Component {
                             <h3 style={{ color: 'white' }}>
                                 101 views
 </h3>
-
+<div className="viewOwnStatus">
+                        <div>
+                            <img src={imgUrl}/>
+                        </div>
+                        <div>
+                            <p className="userName" style={{color:'white'}}>{'user'}</p>
+                        </div>
+                        <div>
+                            <p className='userName' style={{"fontSize":"10px"}}>3 mins ago</p>
+                        </div>
+                    </div>
                         </div>
                     </div>
                 </div>
