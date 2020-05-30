@@ -8,7 +8,7 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import styled from 'styled-components';
-import {AllEmoji} from '../emojis/emoji.jsx'
+import { AllEmoji } from '../emojis/emoji.jsx'
 const Story = styled.img`
     width:27%;
     height:34%;
@@ -18,7 +18,7 @@ const Story = styled.img`
         height:40%;
     }
     `
-    const imgUrl="https://www.chatlineconnect.com/wp-content/uploads/2019/04/manhole1.jpg";
+const imgUrl = "https://www.chatlineconnect.com/wp-content/uploads/2019/04/manhole1.jpg";
 const stories = [
     {
         url: 'https://picsum.photos/1080/1920',
@@ -81,12 +81,12 @@ class RightStatusPage extends Component {
     render() {
         return (
             <div>
-                <div className='row'>
+                <div className='row ml-auto mb-auto'>
                     <div className='col-sm-9' style={{
                         backgroundImage: 'url("https://i2.wp.com/files.123freevectors.com/wp-content/original/110419-black-blurred-background-vector.jpg?w=800&q=95")',
                         backgroundRepeat: 'no-repeat',
-                        backgroundSize: 'cover'
-
+                        backgroundSize: 'cover',
+                        height:'100vh'
                     }}>
                         <div className='row'>
                             <div className='col-sm-1' >
@@ -118,10 +118,9 @@ class RightStatusPage extends Component {
                             <div className='col-sm-6'>
 
                                 <Stories
-                                    stories={this.state.stories
-                                    }
+                                    stories={this.state.stories}
                                     defaultInterval={1500}
-                                    height={620}
+                                    height={610}
                                     isPaused={this.state.isPaused}
                                 />
                             </div>
@@ -130,12 +129,12 @@ class RightStatusPage extends Component {
                             </div>
                         </div>
                         <div className='row mt-3'>
-                            
 
-                            <input style={{backgroundColor:'rgba(0,0,0,0)',borderRadius:'20px',color:'white',marginLeft: '30%' ,padding:'5px',width:'40%'} }  placeholder='Reply....'/>
 
-                            <AllEmoji/>
-                           
+                            <input style={{ backgroundColor: 'rgba(0,0,0,0)', borderRadius: '20px', color: 'white', marginLeft: '30%', padding: '5px', width: '40%' }} placeholder='Reply....' />
+
+                            <AllEmoji />
+
                         </div>
                     </div>
                     <div className='col-sm-3' style={{ backgroundColor: 'rgba(40,40,40,0.9)' }}>
@@ -149,10 +148,10 @@ class RightStatusPage extends Component {
                             )
                         })}
 
-                            <Story  style={{background:'white',paddingTop:'10vh',paddingBottom:'10vh',paddingLeft:'1vw',paddingRight:'1vw'}} src={'https://cdn4.iconfinder.com/data/icons/material-design-content-icons/512/add-circle-512.png'}/>
+                        <Story style={{ background: 'white', paddingTop: '10vh', paddingBottom: '10vh', paddingLeft: '1vw', paddingRight: '1vw' }} src={'https://cdn4.iconfinder.com/data/icons/material-design-content-icons/512/add-circle-512.png'} />
                         <hr style={{ borderTop: '1px solid white' }} />
                         <div>
-                            <h4 style={{ color: 'white' }} > NO Viewers Yet
+                            <h4 style={{ color: 'white' }} > No Viewers Yet
                            <DeleteIcon fontSize={`large`} />
 
                             </h4>
@@ -162,17 +161,17 @@ class RightStatusPage extends Component {
                             <h3 style={{ color: 'white' }}>
                                 101 views
 </h3>
-<div className="viewOwnStatus">
-                        <div>
-                            <img src={imgUrl}/>
-                        </div>
-                        <div>
-                            <p className="userName" style={{color:'white'}}>{'user'}</p>
-                        </div>
-                        <div>
-                            <p className='userName' style={{"fontSize":"10px"}}>3 mins ago</p>
-                        </div>
-                    </div>
+                            <div className="viewOwnStatus">
+                                <div>
+                                    <img src={imgUrl} />
+                                </div>
+                                <div>
+                                    <p className="userName" style={{ color: 'white' }}>{'user'}</p>
+                                </div>
+                                <div>
+                                    <p className='userName' style={{ "fontSize": "10px" }}>3 mins ago</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
