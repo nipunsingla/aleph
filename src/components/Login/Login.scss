@@ -1,0 +1,84 @@
+.Login{
+
+.Login-header{
+    text-align: center;
+    padding:1%;
+    box-shadow: 0px 2px 5px silver;
+}
+.Login-section{
+    display: grid;
+    justify-content: center;
+    grid-template-columns:2fr 8fr;
+    width:50vw;
+    grid-gap: 1rem;
+    margin-left:20%;
+    margin-top:2rem;
+    img{
+        box-shadow: 2px 2px 10px grey;
+        width:100%;
+        border-radius: 7px;
+    }
+    h2{
+        font-size:2rem;
+    }
+    .dot {
+    height: 0.9rem;
+    width: 0.9rem;
+    margin-left:1%;
+    border-radius: 50%;
+    background-color: #bbb;
+    display: inline-block;
+    
+    div{
+        width:4px;
+        height: 4px;
+        position: relative;
+        top:5px;
+        left:5px;
+        border-radius: 50%;
+        background-color:white
+    }
+  }
+  span:first-of-type{
+      background-color: #08DE6C;
+  }
+  
+}
+
+.detail{
+    display: grid;
+    justify-content: center;
+    padding:2rem;
+    input{
+        margin-top:1.4rem;
+        width:40vw;
+    }
+    h3{
+        font-size:2rem;
+        margin-top:1rem;
+    }
+    h5{
+        font-size:1rem;
+        margin-top:1rem;
+        
+    }
+    h5:first-child{
+        color:blue;
+    }
+    button{
+        width:30%;
+        justify-self: center;
+        color:white;
+        background-color: blue;
+        border-radius: 8px;
+    }
+    .new-account{
+        color:yellow;
+        text-decoration: underline;
+        font-size:1.4rem;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+}
