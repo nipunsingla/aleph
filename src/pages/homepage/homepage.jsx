@@ -5,11 +5,11 @@ import Community from '../../components/community/community'
 import NavBar from "../../components/NavBar/NavBar";
 import Cards from '../../components/card/card'
 import { Row, Col, Container } from 'react-bootstrap'
-const Homepage = () => {
+const Homepage = (props) => {
 
     return (
         <div>
-            <NavBar />
+            <NavBar {...props} />
             <div>
 
                 <Row>
