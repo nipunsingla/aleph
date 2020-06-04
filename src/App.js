@@ -77,7 +77,7 @@ class App extends Component {
         <Route path='/group' exact component={Group} />
         <Route path='/chat' exact component={ChatBase} />
         <Route path='/status' exact component={statusPage} />
-        <Route path='/notifications' exact component={Group} />
+        {/* <Route path='/notifications' exact component={Group} /> */}
       </Switch>
     );
     if (this.state.isAuth) {

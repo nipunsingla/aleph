@@ -23,7 +23,8 @@ class LeftBar extends React.Component {
         });
     }
 
-    toggleNotif = () => {
+    toggleNotif = (e) => {
+        e.preventDefault(e);
         this.setState({
             notif: !(this.state.notif)
         });
@@ -45,9 +46,9 @@ class LeftBar extends React.Component {
 
 
                 </ul>
-                <div className={"notificationBar " + (this.state.notif ? "": "hidden")}>
+                <div className={"notificationBar " + (this.state.notif ? "" : "hidden")}>
                     <SimpleBar>
-                        <NotificationBar />                    
+                        <NotificationBar />
                     </SimpleBar>
                 </div>
             </div>
