@@ -40,7 +40,7 @@ class LeftBar extends React.Component {
 
                     <a href='/group' className="list-group-item border-0"><img src={group} height='40rem' width='40rem' alt="logo" /></a>
                     <a href='/chat' className="list-group-item border-0"><img src={chat} height='40rem' width='40rem' alt="logo" /></a>
-                    <a href='/classroom' className="list-group-item border-0"><img src={classroom} height='40rem' width='40rem' alt="logo" /></
+                    <a href='/classroom' className="list-group-item border-0"><img src={classroom} height='40rem' width='40rem' alt="logo" /></a>
                     <a href='/status' className="list-group-item border-0"><img src={status_sign} height='40rem' width='40rem' alt="logo" /></a>
 
 
