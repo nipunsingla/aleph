@@ -36,7 +36,7 @@ class LeftBar extends React.Component {
                 <ul className="list-group ml-0">
 
                     <a href='/feed' className="list-group-item border-0"><img className=" border-2" src={home} height='40rem' width='40rem' alt="logo" /></a>
-                    <a href='/notifications' className="list-group-item border-0"><img src={noti_bell} height='40rem' width='40rem' alt="logo" /></a>
+                    <a href='/notifications' className="list-group-item border-0" onClick={this.toggleNotif}><img src={noti_bell} height='40rem' width='40rem' alt="logo" /></a>
 
                     <a href='/group' className="list-group-item border-0"><img src={group} height='40rem' width='40rem' alt="logo" /></a>
                     <a href='/chat' className="list-group-item border-0"><img src={chat} height='40rem' width='40rem' alt="logo" /></a>
