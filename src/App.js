@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
 import Homepage from './pages/homepage/homepage'
 import { Classroom2 } from './pages/classroom/Classroom2'
+import { Feed } from './pages/feed/feed'
 import { Group } from './pages/group/group'
+import { statusPage } from './pages/statusPage/statusPage'
 import ChatBase from './pages/chat/ChatBase'
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
-import {LoginPage} from './components/Login/Login.jsx';
-import {SignupPage} from './components/Signup/Signup';
-import {forgotPassword} from './components/forgotPassword/forgotPassword'
+import { LoginPage } from './components/Login/Login.jsx';
+import { SignupPage } from './components/Signup/Signup';
+import { forgotPassword } from './components/forgotPassword/forgotPassword'
 import './App.css';
+import history from "./utils/history";
 
 class App extends Component {
   state = {
     isAuth: false,
     authLoading: false,
-    code16:''
+    code16: ''
   };
 
   loginHandler = (event, authData) => {
     event.preventDefault();
-    this.setState({ authLoading: true });
-
+    // this.setState({ authLoading: true });
+    // console.log(this.state.authLoading);
     this.setState({
-      isAuth: true,
-      authLoading: false
+      isAuth: true
     });
-    this.props.history.replace('/feed');
+    console.log(this.state.isAuth);
+    history.replace('/feed');
   };
 
   signupHandler = (event, authData) => {
@@ -62,23 +65,28 @@ class App extends Component {
               onSignup={this.signupHandler}
               loading={this.state.authLoading}
             />
+
           )}
         />
+        <Route
+          path="/feed"
+          exact
+          component={Feed}
+        />
+        <Route path='/classroom' exact component={Classroom2} />
+        <Route path='/group' exact component={Group} />
+        <Route path='/chat' exact component={ChatBase} />
+        <Route path='/status' exact component={statusPage} />
+        <Route path='/notifications' exact component={Group} />
       </Switch>
     );
     if (this.state.isAuth) {
       routes = (
         <Switch>
-          <Route
-            path="/feed"
-            exact
-            render={props => (
-              <Classroom2 />
-            )}
-          />
-          <Route path='/classroom' exact component={Classroom2} />
+          {/* <Route path='/classroom' exact component={Classroom2} />
           <Route path='/group' exact component={Group} />
-          <Route path='/chat' exact component={ChatBase} />
+          <Route path='/chat' exact component={ChatBase} /> */}
+
 
         </Switch>
       );

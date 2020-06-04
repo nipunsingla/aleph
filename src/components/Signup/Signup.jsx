@@ -8,9 +8,9 @@ export const SignupPage = (props) => {
     const [username, setusername] = useState('');
     const [fullname, setfullname] = useState('');
     const [email, setemail] = useState('');
-    const [password,setPassword]=useState('');
-    const[confirmpassword,setConfirmPassword]=useState('');
-    const [confirmationcode,setconfirmationcode]=useState('');
+    const [password, setPassword] = useState('');
+    const [confirmpassword, setConfirmPassword] = useState('');
+    const [confirmationcode, setconfirmationcode] = useState('');
     let x = '';
     const login = (e) => {
         e.preventDefault(e);
@@ -22,9 +22,9 @@ export const SignupPage = (props) => {
         props.history.push('/')
 
     }
-    const myalldata=(e)=>{
-        props.onSignup(e,{
-            count,code16,mobileno,username,fullname,email,password
+    const myalldata = (e) => {
+        props.onSignup(e, {
+            count, code16, mobileno, username, fullname, email, password
         });
         alert('thnx a lot for sign Up');
         props.history.push('/login');
@@ -43,7 +43,7 @@ export const SignupPage = (props) => {
                 <div className='Signup-section'>
 
 
-                    <p className='back' onClick={() => count==0?null:setCount(count - 1)}>
+                    <p className='back' onClick={() => count == 0 ? null : setCount(count - 1)}>
 
                         Back
                 </p>
@@ -73,36 +73,36 @@ export const SignupPage = (props) => {
                 {count == 0 ?
 
                     <div className='my-first-component'>
-                        
-            <div>
-                <h3>
 
-                    Let's Get Your Teacher's Account Setup
+                        <div>
+                            <h3>
+
+                                Let's Get Your Teacher's Account Setup
 
         </h3>
-                <p className='text'>
-                    Every one remebers the teacher who made a difference in their lives.With communication tools like Posts and
-                    Messages.Aleph's helps you to be that Teacher for your Students
+                            <p className='text'>
+                                Every one remebers the teacher who made a difference in their lives.With communication tools like Posts and
+                                Messages.Aleph's helps you to be that Teacher for your Students
         </p>
-                <h3>
-                    Enter Your 16 Digi Code Here
+                            <h3>
+                                Enter Your 16 Digit Code Here
         </h3>
-                <div className='input'>
+                            <div className='input'>
 
-                    <input type="text" onChange={e => setCode16(e.target.value)} value={code16} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Your Code Here.." required/>
-                    <div className='icon1'>
+                                <input type="text" onChange={e => setCode16(e.target.value)} value={code16} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Your Code Here.." required />
+                                <div className='icon1'>
 
-                        <ArrowForwardIcon onClick={(e)=>{e.preventDefault(); setCount(count+1)}} required/>
-                    </div>
+                                    <ArrowForwardIcon onClick={(e) => { e.preventDefault(); setCount(count + 1) }} required />
+                                </div>
 
-                </div>
+                            </div>
 
-                <h5 className='text-center'>Or</h5>
-                <h3 className='old-account' onClick={login}>
-                    Click Here To Login
+                            <h5 className='text-center'>Or</h5>
+                            <h3 className='old-account' onClick={login}>
+                                Click Here To Login
 </h3>
-            </div>
-        
+                        </div>
+
                     </div> : count == 1 ? <div className='my-second-component'>
                         <div>
                             <h3>
@@ -120,7 +120,7 @@ export const SignupPage = (props) => {
 
                             <div className='input'>
 
-                                <input style={{ color: '#08de6c' }} value={code16} className="form-control" placeholder=""  required/>
+                                <input style={{ color: '#08de6c' }} value={code16} className="form-control" placeholder="" required />
 
 
                             </div>
@@ -129,33 +129,33 @@ export const SignupPage = (props) => {
 
                                 <input type="text" onChange={(e) => {
                                     setmobileno(e.target.value)
-                                }} value={mobileno} className="form-control" placeholder="Enter Your Mobile No" required/>
+                                }} value={mobileno} className="form-control" placeholder="Enter Your Mobile No" required />
 
                             </div>
 
                             <div className='input'>
 
-                                <input type="text"  onChange={(e)=>setusername(e.target.value)} value={username} className="form-control" placeholder="Set A User Name" required/>
-
-
-                            </div>
-
-                            <div className='input'>
-
-                                <input type="text" name='fullname' value={fullname} onChange={(e)=>setfullname(e.target.value)} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Your Full Name"required/>
+                                <input type="text" onChange={(e) => setusername(e.target.value)} value={username} className="form-control" placeholder="Set A User Name" required />
 
 
                             </div>
 
                             <div className='input'>
 
-                                <input type="email" name='email'  value={email} onChange={(e)=>setemail(e.target.value)}    className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Email" required/>
+                                <input type="text" name='fullname' value={fullname} onChange={(e) => setfullname(e.target.value)} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Your Full Name" required />
+
+
+                            </div>
+
+                            <div className='input'>
+
+                                <input type="email" name='email' value={email} onChange={(e) => setemail(e.target.value)} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Email" required />
 
 
                             </div>
                             <div className='button'>
 
-                                <button onClick={(e)=>{e.preventDefault(); setCount(count+1)}}>
+                                <button onClick={(e) => { e.preventDefault(); setCount(count + 1) }}>
                                     Next
             </button>
 
@@ -176,93 +176,93 @@ export const SignupPage = (props) => {
                         </div>
 
                     </div> : count == 2 ? <div className='my-third-component'>
-                    
-            <div>
-                <h3>
 
-                    Let's Get Your Teacher's Account Setup
+                        <div>
+                            <h3>
+
+                                Let's Get Your Teacher's Account Setup
 
         </h3>
-                <p className='text'>
-                    Every one remebers the teacher who made a difference in their lives.With communication tools like Posts and
-                    Messages.Aleph's helps you to be that Teacher for your Students
+                            <p className='text'>
+                                Every one remebers the teacher who made a difference in their lives.With communication tools like Posts and
+                                Messages.Aleph's helps you to be that Teacher for your Students
         </p>
-                <h3>
-                    Enter Confimration Code
+                            <h3>
+                                Enter Confimration Code
         </h3>
 
-                <div className='input'>
+                            <div className='input'>
 
-                    <input type="text" onChange={(e)=>setconfirmationcode(e.target.value)} value={confirmationcode} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Your Confirmation Code" required/>
-                </div>
-                <p className='request'> Request a New Confirmation Code</p>
+                                <input type="text" onChange={(e) => setconfirmationcode(e.target.value)} value={confirmationcode} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Your Confirmation Code" required />
+                            </div>
+                            <p className='request'> Request a New Confirmation Code</p>
 
-                <div className='button'>
+                            <div className='button'>
 
-                    <button onClick={(e)=>{e.preventDefault(); setCount(count+1)}} >
-                        Next
+                                <button onClick={(e) => { e.preventDefault(); setCount(count + 1) }} >
+                                    Next
             </button>
-                </div>
+                            </div>
 
-                <p className='institute-text'>
-                    Enter Institue with Existing Aleph's account
+                            <p className='institute-text'>
+                                Enter Institue with Existing Aleph's account
 </p>
-                <h5 className='text-center'>Or</h5>
-                <h3 className='old-account' onClick={login}>
-                    Click Here To Login
+                            <h5 className='text-center'>Or</h5>
+                            <h3 className='old-account' onClick={login}>
+                                Click Here To Login
 </h3>
-            </div>
-        
-                        </div> : <div className='my-fourth-component'> 
-            <div>
-                <h3>
+                        </div>
 
-                    Let's Get Your Teacher's Account Setup
+                    </div> : <div className='my-fourth-component'>
+                                <div>
+                                    <h3>
+
+                                        Let's Get Your Teacher's Account Setup
 
         </h3>
-                <p className='text'>
-                    Every one remebers the teacher who made a difference in their lives.With communication tools like Posts and
-                    Messages.Aleph's helps you to be that Teacher for your Students
+                                    <p className='text'>
+                                        Every one remebers the teacher who made a difference in their lives.With communication tools like Posts and
+                                        Messages.Aleph's helps you to be that Teacher for your Students
         </p>
-                <h3>
-                    Set Your Password
+                                    <h3>
+                                        Set Your Password
         </h3>
-                <div className='input'>
+                                    <div className='input'>
 
-                    <input type="password" onChange={e=>setPassword(e.target.value)} value={password} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Set Password"  required/>
+                                        <input type="password" onChange={e => setPassword(e.target.value)} value={password} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Set Password" required />
 
 
-                </div>
+                                    </div>
 
-                <div className='input'>
+                                    <div className='input'>
 
-                    <input type="password"  onChange={e=>setConfirmPassword(e.target.value)} value={confirmpassword} className="form-control" placeholder="Confirm Password" required required/>
+                                        <input type="password" onChange={e => setConfirmPassword(e.target.value)} value={confirmpassword} className="form-control" placeholder="Confirm Password" required required />
 
-                </div>
-                <button className='sign-up' onClick={(e)=>myalldata(e)}>
-                    Sign Up
+                                    </div>
+                                    <button className='sign-up' onClick={(e) => myalldata(e)}>
+                                        Sign Up
             </button>
-                <p className='policy'>
-                    By Signing Up,you agre to our <b> Terms of Service</b> ans <b>Privacy </b>
+                                    <p className='policy'>
+                                        By Signing Up,you agre to our <b> Terms of Service</b> ans <b>Privacy </b>
     policy <span className='text-primary'>...see details</span>
-                </p>
-                <p className='institute-text'>
-                    Enter Institue with Existing Aleph's account
+                                    </p>
+                                    <p className='institute-text'>
+                                        Enter Institue with Existing Aleph's account
 </p>
-                <h5 className='text-center'>Or</h5>
-                <h3 className='old-account' onClick={login}>
-                    Click Here To Login
+                                    <h5 className='text-center'>Or</h5>
+                                    <h3 className='old-account' onClick={login}>
+                                        Click Here To Login
 </h3>
-            </div>
-        
-</div>
+                                </div>
+
+                            </div>
                 }
 
 
 
 
             </div>
-            <input type='text' onChange={(e) => setmobileno(e.target.value)} value={mobileno} required/>
+            {/* <input type='text' onChange={(e) => setmobileno(e.target.value)} value={mobileno} required /> */}
 
         </div>
 
