@@ -6,6 +6,11 @@ const SignUp= e =>{
 
     props.history.push('/signup');
 }
+const onLogin= e =>{
+    e.preventDefault(e);
+
+    props.history.push('/feed');
+}
     
 
         return (
@@ -28,27 +33,26 @@ const SignUp= e =>{
            One Child,one teacher,one book and one pen can change the world
                 </h2>
                 <h6 className='text-muted'>
-                -Malala Yousafzai, Noble Price Winner
+                -Malala Yousafzai, Noble Prize Winner
                 </h6>
-<div className='text-center'>  <span className="dot">
+<div className='text-center'>  
+   <span className="dot">
+     <div>    
+     </div>
+   </span>
+  <span className="dot">
+     <div>
+     </div>
+  </span>
+  <span className="dot">
     <div>
-        
-    </div>
-</span>
-  <span className="dot">
-  <div>
-        
     </div>
   </span>
   <span className="dot">
-  <div>
-        
-        </div>
-  </span>
-  <span className="dot">
-  <div>
-        
-        </div></span></div>
+     <div>
+     </div>
+   </span>
+</div>
     </div>
     </div>
     <div  className='detail'>
@@ -62,7 +66,7 @@ const SignUp= e =>{
 <input type="Password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
    
    <h5 className='forgot-password'>Forgot Password?</h5>
-   <button className="btn btn-primary">Submit</button>
+   <button className="btn btn-primary" onClick={onLogin}>Submit</button>
    <h5 className='text-center'>Or</h5>
    <h3 className='new-account' onClick={SignUp}>
        Set up a new account,Sign Up

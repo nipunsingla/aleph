@@ -17,7 +17,7 @@ class PostPage extends React.Component {
             ShowPopup: false,
             res: [],
             loading: false,
-            Announcements:['1','2','3','4']
+            Announcements: ['1', '2', '3', '4']
         };
 
     }
@@ -57,36 +57,36 @@ class PostPage extends React.Component {
             <div className='row mx-auto' >
                 <div className='col-sm-8'>
 
-    <div className="row bg-light border-1 my-auto">
-                    <button className='col-sm btn btn-light'>
-                        Post
+                    <div className="row bg-light border-1 my-auto">
+                        <button className='col-sm btn btn-light'>
+                            Post
                 </button>
 
-                    <button className='col-sm btn btn-light'>
-                        Chats
+                        <button className='col-sm btn btn-light'>
+                            Chats
                 </button>
-                    <button className='col-sm btn btn-light'>
-                        Assignments
+                        <button className='col-sm btn btn-light'>
+                            Assignments
                 </button>
-                    <button className='col-sm btn btn-light'>
-                        Work
+                        <button className='col-sm btn btn-light'>
+                            Work
                 </button>
 
-                    <button className='col-sm btn btn-light'>
-                        More
+                        <button className='col-sm btn btn-light'>
+                            More
                 </button>
-                </div>
-                <div className='row my-2 bg-light'>
+                    </div>
+                    <div className='row my-2 bg-light'>
 
-    <ProfileIcon className='col-sm-3'/>
-               <h5 onClick={this.togglePopup.bind(this)} className='col-sm-8 text-muted mt-4'>Your Post Here.....</h5>  
-            
+                        <ProfileIcon className='col-sm-3' />
+                        <h5 onClick={this.togglePopup.bind(this)} className='col-sm-8 text-muted mt-4'>Your Post Here.....</h5>
 
-                <FolderOpenIcon  font-size='large' className='col-sm-1 my-auto'/>  
-                <PhotoLibraryTwoToneIcon color='primary' fontSize='large' className='col-sm-1 my-auto'/>
-</div>
+
+                        <FolderOpenIcon font-size='large' className='col-sm-1 my-auto' />
+                        <PhotoLibraryTwoToneIcon color='primary' fontSize='large' className='col-sm-1 my-auto' />
+                    </div>
                     {this.state.loading ?
-                        <div className='row'>
+                        <div >
                             <DisplayPosts data={this.state.res} />
                         </div> : null
 
@@ -101,17 +101,17 @@ class PostPage extends React.Component {
                     <h2>
                         Announcements
                         <div className='text-center mt-1'>
-                        
-                        
-                        {this.state.Announcements.map((val)=>{
-                               return      <h4> Announcement{val}</h4>
-                        })
+
+
+                            {this.state.Announcements.map((val) => {
+                                return <h4> Announcement{val}</h4>
+                            })
                             }
 
                         </div>
 
                         <h4 className='text-primary'> See all...</h4>
-                </h2>
+                    </h2>
 
                 </div>
             </div>
