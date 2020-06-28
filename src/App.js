@@ -11,23 +11,70 @@ import { SignupPage } from './components/Signup/Signup';
 import { forgotPassword } from './components/forgotPassword/forgotPassword'
 import './App.css';
 import history from "./utils/history";
+import axios from 'axios';
 
 class App extends Component {
   state = {
     isAuth: false,
     authLoading: false,
+    accessToken: '',
+    userId: '',
+    refreshToken: '',
     code16: ''
   };
 
   loginHandler = (event, authData) => {
     event.preventDefault();
-    // this.setState({ authLoading: true });
-    // console.log(this.state.authLoading);
-    this.setState({
-      isAuth: true
-    });
-    console.log(this.state.isAuth);
-    history.replace('/feed');
+
+    this.setState({ authLoading: true });
+    const flag = /^\d+$/.test(authData.loginKey) ? "mobileno" : "username";
+    const gqlQuery = {
+      query: `{
+        loginStudent(loginKey:"${authData.loginKey}", password:"${authData.password}", flag:"${flag}") {
+          userId,
+          accessToken,
+          refreshToken
+        }
+      }`
+    };
+
+    fetch('https://server.aleph1812.now.sh/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(gqlQuery)
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(resData => {
+        if (resData.errors && resData.errors[0].status === 422) {
+          throw new Error("Validation Failed");
+        }
+        if (resData.errors) {
+          throw new Error('User login Failed');
+        }
+        // console.log(resData.data.loginStudent);
+        this.setState({
+          userId: resData.data.loginStudent.userId,
+          refreshToken: resData.data.loginStudent.refreshToken,
+          accessToken: resData.data.loginStudent.accessToken,
+          isAuth: true
+        });
+        localStorage.setItem('userId', this.state.userId);
+        localStorage.setItem('refreshToken', this.state.refreshToken);
+        localStorage.setItem('accessToken', this.state.accessToken);
+
+        this.setState({
+          authLoading: false
+        });
+      })
+      .catch(err => {
+        console.log("Login Failed due to: " + err);
+      });
+
+    // window.location.href = "/";
   };
 
   signupHandler = (event, authData) => {
