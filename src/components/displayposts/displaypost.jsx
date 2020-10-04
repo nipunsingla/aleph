@@ -17,7 +17,7 @@ export const DisplayPosts=({data})=>{
             setLoading(false);
         
         }
-
+      
         fetchQuestions();
     }, []);
 
@@ -33,7 +33,7 @@ export const DisplayPosts=({data})=>{
     <div  >
 
 <SimpleBar>
-        <Posts  posts = {currPageQuestions} loading ={loading}/>
+        <Posts  posts = {data} loading ={loading}/>
         </SimpleBar>
         <CustomPagination className="fixed-bottom"
                         postsPerPage = {postsPerPage} 

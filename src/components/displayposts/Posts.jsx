@@ -9,17 +9,18 @@ export const Posts = ({posts, loading}) => {
     }
     return (
         <div>
-        {posts.map((post,index) =>{
+        {posts.map((post) =>{
             return(
-                <QuestionCard 
-                    key = {index+1}
-                    userId = {post.userId} 
-                    id = {index+1}
+            <QuestionCard 
+                    content = {post.content}
                     title = {post.title}
-                    body = {post.body}    
+                    creator= {post.creator} 
+                    time={post.createdAt} 
+                    imageUrl={post.imageUrl}  
                 />
             )
         })}
         </div>
     )
 }
+
