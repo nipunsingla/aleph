@@ -3,7 +3,7 @@ import { USER_LOGIN_QUERY } from '../../query';
 import { useLazyQuery } from '@apollo/client';
 
 import './Login.scss'
-const LoginPage = () => {
+const LoginPage = (props) => {
     const [loginKey, setLoginKey] = useState("");
     const [password, setPassword] = useState("");
 
@@ -17,8 +17,6 @@ const LoginPage = () => {
         if (e.target.name === "loginKey") setLoginKey(e.target.value);
         if (e.target.name === "password") setPassword(e.target.value);
     }
-
-
 
     const [userLogin, { loading, data, error }] = useLazyQuery(USER_LOGIN_QUERY);
 
@@ -42,7 +40,9 @@ const LoginPage = () => {
         return <div> loading.....</div>
     }
     if (error) {
-        throw error;
+        alert("Invalid Details!!");
+        props.history.replace('/login');
+        //throw new Error("Invalid details");
     }
     else {
         if(data){
@@ -50,6 +50,14 @@ const LoginPage = () => {
             localStorage.setItem('userId', data.loginUser.userId);
             localStorage.setItem('refreshToken', data.loginUser.refreshToken);
             localStorage.setItem('accessToken', data.loginUseraccessToken);
+            const remainingMilliseconds = 60 * 60 * 1000;
+            const expiryDate = new Date(
+              new Date().getTime() + remainingMilliseconds
+            );
+            localStorage.setItem('expiryDate', expiryDate.toISOString());
+            props.setAutoLogout(remainingMilliseconds);
+            props.authHandler();
+            props.history.replace('/feed');
         }
         return (
 
