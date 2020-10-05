@@ -114,10 +114,10 @@ export const SignupPage = (props) => {
 
                                     <ArrowForwardIcon onClick={(e) => {
                                         e.preventDefault();
-                                        // if (code16.length != 16) {
-                                        //     alert("please enter 16 length code");
-                                        //     return;
-                                        // }
+                                        if (code16.length != 16) {
+                                            alert("please enter 16 length code");
+                                            return;
+                                        }
                                         setCount(count + 1)
                                     }} required />
                                 </div>
