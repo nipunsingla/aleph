@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import  {USER_LOGIN_QUERY } from '../../query';
+import {useLazyQuery } from '@apollo/client';
 import './Login.scss'
 const LoginPage = ({ onLogin }) => {
     const [loginKey, setLoginKey] = useState("");
@@ -15,17 +17,39 @@ const LoginPage = ({ onLogin }) => {
         if (e.target.name === "password") setPassword(e.target.value);
     }
 
-    const login = e => {
+
+
+    const [userLogin, { loading, data, error }] = useLazyQuery(USER_LOGIN_QUERY);
+
+    const login = async (e) => {
         e.preventDefault(e);
         const authData = {
             loginKey,
             password
         };
-        onLogin(e, authData);
+        const flag = /^\d+$/.test(authData.loginKey) ? "mobileno" : "username";
+
+      await  userLogin({
+            variables: {
+                loginKey: authData.loginKey,
+                password: authData.password,
+                flag: flag
+            }
+        });
+        console.log(data);
+        if(data)
+        onLogin(e, {accesToken:data.accessToken,userToken:data.userToken,userId:data.userId});
+        else
+        console.log("undefined data")
     }
-
+    if(loading){
+     return   <div> loading.....</div>
+    }
+    if(error){
+        throw error;
+    }
     return (
-
+        
         <div className='Login'>
             <div className='Login-header'>
                 <h2>Aleph's</h2>
