@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Signup.scss'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import { useLazyQuery, useMutation } from '@apollo/client';
+import { SEND_OTP_QUERY ,VERIFY_OTP_QUERY,CREATE_USER_MUTATION} from '../../query';
 export const SignupPage = (props) => {
     const [count, setCount] = useState(0);
     const [code16, setCode16] = useState("");
@@ -17,22 +19,40 @@ export const SignupPage = (props) => {
         props.history.push('/login')
 
     }
+
+    const [getOtp, getOtpResponse] = useLazyQuery(SEND_OTP_QUERY);
+    const [verifyOtp,verifyOtpResponse]=useLazyQuery(VERIFY_OTP_QUERY);
+    const [createUser,createUserResponse]=useMutation(CREATE_USER_MUTATION);
+
+
     const front = (e) => {
         e.preventDefault(e);
         props.history.push('/')
 
     }
     const myalldata = (e) => {
-        props.onSignup(e, {
-            count, code16, mobileno, username, fullname, email, password
+
+
+        console.log(fullname,email,password,username,mobileno);
+        createUser({
+            variables:{
+                name:fullname,
+                email:email,
+                password:password,
+                username:username,
+                usertype:"student",
+                schoolusername:"tokyo",
+                mobileno:mobileno,
+            }
         });
-        alert('thnx a lot for sign Up');
-        props.history.push('/login');
 
     }
+    if(createUserResponse.data){
+        props.history.push('/login');
+    }
     return (
-        <div className='signup'>
-
+       <div className='signup'>
+       
             <div className='Signup-header'>
                 <h2>
                     Aleph's
@@ -92,7 +112,14 @@ export const SignupPage = (props) => {
                                 <input type="text" onChange={e => setCode16(e.target.value)} value={code16} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Your Code Here.." required />
                                 <div className='icon1'>
 
-                                    <ArrowForwardIcon onClick={(e) => { e.preventDefault(); setCount(count + 1) }} required />
+                                    <ArrowForwardIcon onClick={(e) => {
+                                        e.preventDefault();
+                                        // if (code16.length != 16) {
+                                        //     alert("please enter 16 length code");
+                                        //     return;
+                                        // }
+                                        setCount(count + 1)
+                                    }} required />
                                 </div>
 
                             </div>
@@ -103,117 +130,159 @@ export const SignupPage = (props) => {
 </h3>
                         </div>
 
-                    </div> : count == 1 ? <div className='my-second-component'>
-                        <div>
-                            <h3>
+                    </div> : count == 1 ? 
 
-                                Let's Get Your Teacher's Account Setup
+
+                        <div className='my-second-component'>
+                    
+                            <div>
+                                <h3>
+
+                                    Let's Get Your Teacher's Account Setup
 
         </h3>
-                            <p className='text'>
-                                Every one remebers the teacher who made a difference in their lives.With communication tools like Posts and
-                                Messages.Aleph's helps you to be that Teacher for your Students
+                                <p className='text'>
+                                    Every one remebers the teacher who made a difference in their lives.With communication tools like Posts and
+                                    Messages.Aleph's helps you to be that Teacher for your Students
         </p>
-                            <h3>
-                                Fill Details To Sign Up
+                                <h3>
+                                    Fill Details To Sign Up
         </h3>
 
-                            <div className='input'>
+                                <div className='input'>
 
-                                <input style={{ color: '#08de6c' }} value={code16} className="form-control" placeholder="" required />
-
-
-                            </div>
-
-                            <div className='input'>
-
-                                <input type="text" onChange={(e) => {
-                                    setmobileno(e.target.value)
-                                }} value={mobileno} className="form-control" placeholder="Enter Your Mobile No" required />
-
-                            </div>
-
-                            <div className='input'>
-
-                                <input type="text" onChange={(e) => setusername(e.target.value)} value={username} className="form-control" placeholder="Set A User Name" required />
+                                    <input style={{ color: '#08de6c' }} value={code16} className="form-control" placeholder="" required />
 
 
-                            </div>
+                                </div>
 
-                            <div className='input'>
+                                <div className='input'>
 
-                                <input type="text" name='fullname' value={fullname} onChange={(e) => setfullname(e.target.value)} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Your Full Name" required />
+                                    <input type="text" onChange={(e) => {
+                                        setmobileno(e.target.value)
+                                    }} value={mobileno} className="form-control" placeholder="Enter Your Mobile No" required />
+
+                                </div>
+
+                                <div className='input'>
+
+                                    <input type="text" onChange={(e) => setusername(e.target.value)} value={username} className="form-control" placeholder="Set A User Name" required />
 
 
-                            </div>
+                                </div>
 
-                            <div className='input'>
+                                <div className='input'>
 
-                                <input type="email" name='email' value={email} onChange={(e) => setemail(e.target.value)} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Email" required />
+                                    <input type="text" name='fullname' value={fullname} onChange={(e) => setfullname(e.target.value)} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Your Full Name" required />
 
 
-                            </div>
-                            <div className='button'>
+                                </div>
 
-                                <button onClick={(e) => { e.preventDefault(); setCount(count + 1) }}>
-                                    Next
+                                <div className='input'>
+
+                                    <input type="email" name='email' value={email} onChange={(e) => setemail(e.target.value)} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Email" required />
+
+
+                                </div>
+                                <div className='button'>
+
+                                    <button onClick={(e) => {
+                                        e.preventDefault();
+
+                                        getOtp({
+                                            variables: {
+                                                mobileno: mobileno
+                                            }
+                                        });
+
+
+                                        setCount(count + 1)
+                                    }}>
+                                        Next
             </button>
 
-                                <p className='policy'>
-                                    By Signing Up,you agre to our <b> Terms of Service</b> ans <b>Privacy </b>
+                                    <p className='policy'>
+                                        By Signing Up,you agre to our <b> Terms of Service</b> ans <b>Privacy </b>
     policy <span className='text-primary'>...see details</span>
-                                </p>
-                            </div>
+                                    </p>
+                                </div>
 
-                            <p className='institute-text'>
-                                Enter Institue with Existing Aleph's account
+                                <p className='institute-text'>
+                                    Enter Institue with Existing Aleph's account
 </p>
-                            <h5 className='text-center'>Or</h5>
-                            <h3 className='old-account' onClick={login}>
-                                Click Here To Login
+                                <h5 className='text-center'>Or</h5>
+                                <h3 className='old-account' onClick={login}>
+                                    Click Here To Login
 </h3>
 
-                        </div>
+                            </div>
 
-                    </div> : count == 2 ? <div className='my-third-component'>
+                        </div> : count == 2 ?
+                        getOtpResponse.loading?<div> loading.....</div>:
+                        getOtpResponse.error?<div> error ....</div>:
+                        !getOtpResponse.data ?<div>there  is some error</div>:<div className='my-third-component'>
+                        {
+                            console.log(getOtpResponse)
+                        }
+                            <div>
+                                <h3>
 
-                        <div>
-                            <h3>
-
-                                Let's Get Your Teacher's Account Setup
+                                    Let's Get Your Teacher's Account Setup
 
         </h3>
-                            <p className='text'>
-                                Every one remebers the teacher who made a difference in their lives.With communication tools like Posts and
-                                Messages.Aleph's helps you to be that Teacher for your Students
+                                <p className='text'>
+                                    Every one remebers the teacher who made a difference in their lives.With communication tools like Posts and
+                                    Messages.Aleph's helps you to be that Teacher for your Students
         </p>
-                            <h3>
-                                Enter Confimration Code
+                                <h3>
+                                    Enter Confimration Code
         </h3>
 
-                            <div className='input'>
+                                <div className='input'>
 
-                                <input type="text" onChange={(e) => setconfirmationcode(e.target.value)} value={confirmationcode} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Your Confirmation Code" required />
-                            </div>
-                            <p className='request'> Request a New Confirmation Code</p>
+                                    <input type="text" onChange={(e) => setconfirmationcode(e.target.value)} value={confirmationcode} className="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter Your Confirmation Code" required />
+                                </div>
+                                <p className='request'> Request a New Confirmation Code</p>
 
-                            <div className='button'>
+                                <div className='button'>
 
-                                <button onClick={(e) => { e.preventDefault(); setCount(count + 1) }} >
-                                    Next
+                                    <button onClick={(e) => {
+                                        
+                                        
+                                        verifyOtp({
+                                            variables:{
+                                                mobileno:mobileno,
+                                                otp:confirmationcode
+                                            }
+                                        });
+                                        
+                                        
+                                        e.preventDefault(); 
+                                        
+
+                                        
+                                        
+                                        
+                                        setCount(count + 1) }} >
+                                        Next
             </button>
+                                </div>
+
+                                <p className='institute-text'>
+                                    Enter Institue with Existing Aleph's account
+</p>
+                                <h5 className='text-center'>Or</h5>
+                                <h3 className='old-account' onClick={login}>
+                                    Click Here To Login
+</h3>
                             </div>
 
-                            <p className='institute-text'>
-                                Enter Institue with Existing Aleph's account
-</p>
-                            <h5 className='text-center'>Or</h5>
-                            <h3 className='old-account' onClick={login}>
-                                Click Here To Login
-</h3>
-                        </div>
+                        </div> :                            verifyOtpResponse.loading?<div> loading...</div>:
 
-                    </div> : <div className='my-fourth-component'>
+                        verifyOtpResponse.error?<div> error....</div>:
+ <div className='my-fourth-component'>
+                            
+
                                 <div>
                                     <h3>
 
