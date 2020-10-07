@@ -45,11 +45,9 @@ function App() {
     }
 
     const userId = localStorage.getItem('userId');
-    // const remainingMilliseconds = new Date(expiryDate).getTime() - new Date().getTime();
     setUserId(userId);
     setaccessToken(accessToken);
     setIsAuth(true);
-    //setAutoLogout(remainingMilliseconds);
   });
 
   const setAutoLogout = milliseconds => {
@@ -70,7 +68,18 @@ function App() {
     setIsAuth(true);
   }
 
-  let routes = (
+  const checkIsUserPresent = async () => {
+
+    const accessToken = localStorage.getItem('accessToken');
+
+    const expiryDate = localStorage.getItem('expiryDate');
+    if (!accessToken || !expiryDate) {
+      return false;
+    }
+    return true;
+
+  }
+  let routes =(!checkIsUserPresent()?
     <Switch>
       <Route exact path='/' component={Homepage} />
       <Route
@@ -98,40 +107,25 @@ function App() {
 
         )}
       />
-      <Redirect to="/" />
+      <Redirect to="/feed" />
     </Switch>
-  );
-  if (isAuth) {
-    routes = (
+  :
       <Switch>
         <Route exact path='/' component={Homepage} />
         <Route
           path="/feed"
           exact
-          component={() => <Feed accessToken={accessToken}/>}
+          component={() => <Feed accessToken={accessToken} />}
         />
         <Route path='/classroom' exact component={Classroom2} />
         <Route path='/group' exact component={Group} />
         <Route path='/chat' exact component={ChatBase} />
         <Route path='/status' exact component={statusPage} />
 
-        <Redirect to="/feed" component={() => <Feed accessToken={accessToken}/>}/>
+        <Redirect to="/feed" component={() => <Feed accessToken={accessToken} />} />
         {/* <Route path='/notifications' exact component={Group} /> */}
       </Switch>
     );
-  }
-  //   );
-  // if (authLoading) {
-  //   routes = (
-  //     <Switch>
-  //       {/* <Route path='/classroom' exact component={Classroom2} />
-  //         <Route path='/group' exact component={Group} />
-  //         <Route path='/chat' exact component={ChatBase} /> */}
-
-
-  //     </Switch>
-  //   );
-  // }
   return (
     <ApolloProvider client={client}>
       <div className="App">
