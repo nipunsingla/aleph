@@ -38,7 +38,7 @@ class FeedPost extends React.Component {
 
   componentDidMount() {
     this.loadPosts();
-    const socket = openSocket('http://localhost:3001');
+    const socket = openSocket('https://aleph-server.vercel.app/');
     socket.on('posts', data => {
       if (data.action === 'create') {
         this.addPost(data.post);
