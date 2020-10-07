@@ -44,8 +44,8 @@ class FeedPost extends React.Component {
         this.addPost(data.post);
       }
     });
-    console.log("I am showing posts");
-    console.log(this.state.posts);
+    // console.log("I am showing posts");
+    // console.log(this.state.posts);
   }
 
   addPost = post => {
@@ -62,7 +62,6 @@ class FeedPost extends React.Component {
   loadPosts = async (direction) => {
     this.setState({ posts: [] });
     const graphqlQuery = {
-
       query: `
       query{
         getPosts{
@@ -80,10 +79,11 @@ class FeedPost extends React.Component {
       }
           `
     };
+    console.log("@@@@@@@", this.props.accessToken);
     fetch('https://aleph-server.vercel.app/graphql', {
       method: 'POST',
       headers: {
-        //Authorization: 'Bearer ' + this.props.token,
+        Authorization: 'Bearer ' + this.props.accessToken,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(graphqlQuery)
@@ -101,10 +101,10 @@ class FeedPost extends React.Component {
           loading: true,
           posts: resData.data.getPosts.posts
         });
-        console.log("is it done?", this.state.posts);
+        //console.log("is it done?", this.state.posts);
       })
       .catch(this.catchError);
-    console.log("can i reach here?");
+    //console.log("can i reach here?");
   };
 
   togglePopup() {
@@ -114,14 +114,83 @@ class FeedPost extends React.Component {
     })
 
   }
-  AddPosts(res) {
-
-    this.state.res.unshift(res)
+  AddPosts = (postData) => {
     this.togglePopup();
     alert('added succesfully');
-    console.log(this.state.res);
+    console.log(postData);
 
-  }
+
+    const formData = new FormData();
+    formData.append('imageUrl', postData.imageUrl);
+    formData.append('content', postData.content);
+    formData.append('title', postData.title);
+
+    let graphqlQuery = {
+      query: `
+      mutation createPost($title: String!, $content: String!, $imageUrl: String!) {
+        createPost(postInput: {title: $title, content: $content, imageUrl: $imageUrl}) {
+          _id
+          title
+          content
+          imageUrl
+          creator {
+            name
+          }
+          createdAt
+        }
+      }
+    `,
+      variables: {
+        title: postData.title,
+        content: postData.content,
+        imageUrl: postData.imageUrl
+      }
+    };
+    console.log("@@@@@@@", this.props.accessToken);
+    fetch('https://aleph-server.vercel.app/graphql', {
+      method: 'POST',
+      body: JSON.stringify(graphqlQuery),
+      headers: {
+        Authorization: 'Bearer ' + this.props.accessToken,
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => {
+        return res.json();
+      })
+      .then(resData => {
+        if (resData.errors && resData.errors[0].status === 422) {
+          throw new Error(
+            "Validation failed. Make sure the email address isn't used yet!"
+          );
+        }
+        if (resData.errors) {
+          console.log(resData.errors);
+          throw new Error('User login failed!');
+        }
+        let resDataField = 'createPost';
+        const post = {
+          _id: resData.data[resDataField]._id,
+          title: resData.data[resDataField].title,
+          content: resData.data[resDataField].content,
+          creator: resData.data[resDataField].creator,
+          createdAt: resData.data[resDataField].createdAt,
+          imagePath: resData.data[resDataField].imageUrl
+        };
+        let updatedPosts;
+        this.setState(prevState => {
+          updatedPosts = [...prevState.posts];
+          updatedPosts.unshift(post);
+        });
+        return {
+          posts: updatedPosts
+        };
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
     return (
       <div className='row mx-auto' >

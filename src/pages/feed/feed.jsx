@@ -34,7 +34,7 @@ class Feed extends React.Component{
                             <div className='row-sm padding-0'>
                             <FeedCard />
                             </div>
-                            <FeedPost />
+                            <FeedPost {...this.props}/>
                         </Col>
                     </Row>
                 </Container>

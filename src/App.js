@@ -1,5 +1,5 @@
-import React, { Component, useState ,useEffect} from 'react';
-import  { Redirect } from 'react-router-dom'
+import React, { Component, useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom'
 import Homepage from './pages/homepage/homepage'
 import { Classroom2 } from './pages/classroom/Classroom2'
 import { Feed } from './pages/feed/feed'
@@ -31,21 +31,21 @@ function App() {
       authLoading: false
     });
   };
- 
+
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
-    
+
     const expiryDate = localStorage.getItem('expiryDate');
     if (!accessToken || !expiryDate) {
       return;
     }
     if (new Date(expiryDate) <= new Date()) {
-      this.logoutHandler();
+      logoutHandler();
       return;
     }
 
     const userId = localStorage.getItem('userId');
-   // const remainingMilliseconds = new Date(expiryDate).getTime() - new Date().getTime();
+    // const remainingMilliseconds = new Date(expiryDate).getTime() - new Date().getTime();
     setUserId(userId);
     setaccessToken(accessToken);
     setIsAuth(true);
@@ -65,7 +65,7 @@ function App() {
     localStorage.removeItem('expiryDate');
     localStorage.removeItem('userId');
   };
- 
+
   const authHandler = () => {
     setIsAuth(true);
   }
@@ -93,12 +93,12 @@ function App() {
             {...props}
             onSignup={signupHandler}
             loading={authLoading}
-            
+
           />
 
         )}
       />
-     <Redirect to="/" />
+      <Redirect to="/" />
     </Switch>
   );
   if (isAuth) {
@@ -106,17 +106,17 @@ function App() {
       <Switch>
         <Route exact path='/' component={Homepage} />
         <Route
-        path="/feed"
-        exact
-        component={Feed}
-      />
-      <Route path='/classroom' exact component={Classroom2} />
-      <Route path='/group' exact component={Group} />
-      <Route path='/chat' exact component={ChatBase} />
-      <Route path='/status' exact component={statusPage} />
-      
-      <Redirect to="/feed" />
-      {/* <Route path='/notifications' exact component={Group} /> */}
+          path="/feed"
+          exact
+          component={() => <Feed accessToken={accessToken}/>}
+        />
+        <Route path='/classroom' exact component={Classroom2} />
+        <Route path='/group' exact component={Group} />
+        <Route path='/chat' exact component={ChatBase} />
+        <Route path='/status' exact component={statusPage} />
+
+        <Redirect to="/feed" component={() => <Feed accessToken={accessToken}/>}/>
+        {/* <Route path='/notifications' exact component={Group} /> */}
       </Switch>
     );
   }
