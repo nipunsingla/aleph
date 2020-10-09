@@ -11,16 +11,16 @@ import { LoginPage } from './components/Login/Login.jsx';
 import { SignupPage } from './components/Signup/Signup';
 import { forgotPassword } from './components/forgotPassword/forgotPassword'
 import './App.css';
-import history from "./utils/history";
-import axios from 'axios';
 import { ApolloProvider, useLazyQuery } from '@apollo/client';
 import { client, USER_LOGIN_QUERY } from './query';
-function App() {
-  const [isAuth, setIsAuth] = useState(false);
-  const [userId, setUserId] = useState(0);
-  const [accessToken, setaccessToken] = useState(0);
+
+function App(props) {
+  const [isAuth, setIsAuth] = useState(props.isAuth);
+  const [accessToken, setaccessToken] = useState(props.accessToken);
+  const [expiryDate, setexpiryDate] = useState(props.expiryDate);
   const [authLoading, changeAuthLoading] = useState(false);;
   const [code16, changeCode16] = useState('');
+
   const signupHandler = (event, authData) => {
     event.preventDefault();
     this.setState({ authLoading: true });
@@ -33,9 +33,10 @@ function App() {
   };
 
   useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
+    init();
+  });
 
-    const expiryDate = localStorage.getItem('expiryDate');
+  const init = () => {
     if (!accessToken || !expiryDate) {
       return;
     }
@@ -43,21 +44,15 @@ function App() {
       logoutHandler();
       return;
     }
-
-    const userId = localStorage.getItem('userId');
-    // const remainingMilliseconds = new Date(expiryDate).getTime() - new Date().getTime();
-    setUserId(userId);
-    setaccessToken(accessToken);
-    setIsAuth(true);
-    //setAutoLogout(remainingMilliseconds);
-  });
+    const remainingMilliseconds = new Date(expiryDate).getTime() - new Date().getTime();
+    setAutoLogout(remainingMilliseconds);
+  };
 
   const setAutoLogout = milliseconds => {
     setTimeout(() => {
       logoutHandler();
     }, milliseconds);
-  };
-
+  }
   const logoutHandler = () => {
     setaccessToken(null);
     setIsAuth(false);
@@ -108,30 +103,18 @@ function App() {
         <Route
           path="/feed"
           exact
-          component={() => <Feed accessToken={accessToken}/>}
+          component={() => <Feed accessToken={accessToken} />}
         />
-        <Route path='/classroom' exact component={Classroom2} />
-        <Route path='/group' exact component={Group} />
-        <Route path='/chat' exact component={ChatBase} />
-        <Route path='/status' exact component={statusPage} />
+        <Route path='/classroom' exact component={() => <Classroom2 accessToken={accessToken} />} />
+        <Route path='/group' exact component={() => <Group accessToken={accessToken} />} />
+        <Route path='/chat' exact component={() => <ChatBase accessToken={accessToken} />} />
+        <Route path='/status' exact component={() => <statusPage accessToken={accessToken} />} />
 
-        <Redirect to="/feed" component={() => <Feed accessToken={accessToken}/>}/>
+        <Redirect to="/feed" />
         {/* <Route path='/notifications' exact component={Group} /> */}
       </Switch>
     );
   }
-  //   );
-  // if (authLoading) {
-  //   routes = (
-  //     <Switch>
-  //       {/* <Route path='/classroom' exact component={Classroom2} />
-  //         <Route path='/group' exact component={Group} />
-  //         <Route path='/chat' exact component={ChatBase} /> */}
-
-
-  //     </Switch>
-  //   );
-  // }
   return (
     <ApolloProvider client={client}>
       <div className="App">
