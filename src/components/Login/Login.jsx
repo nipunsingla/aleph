@@ -50,7 +50,7 @@ const LoginPage = (props) => {
             localStorage.setItem('userId', data.loginUser.userId);
             localStorage.setItem('refreshToken', data.loginUser.refreshToken);
             localStorage.setItem('accessToken', data.loginUser.accessToken);
-            const remainingMilliseconds = 30 * 24 * 60 * 60 * 1000;
+            const remainingMilliseconds = 60 * 60 * 1000;
             const expiryDate = new Date(
                 new Date().getTime() + remainingMilliseconds
             );
