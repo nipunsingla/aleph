@@ -103,7 +103,7 @@ function App(props) {
         <Route
           path="/feed"
           exact
-          component={() => <Feed accessToken={accessToken} />}
+          component={() => <Feed {...props} />}
         />
         <Route path='/classroom' exact component={() => <Classroom2 accessToken={accessToken} />} />
         <Route path='/group' exact component={() => <Group accessToken={accessToken} />} />

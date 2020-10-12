@@ -20,7 +20,7 @@ const LoginPage = (props) => {
 
     const [userLogin, { loading, data, error }] = useLazyQuery(USER_LOGIN_QUERY);
 
-    const login =  (e) => {
+    const login = (e) => {
         e.preventDefault(e);
         const authData = {
             loginKey,
@@ -28,7 +28,7 @@ const LoginPage = (props) => {
         };
         const flag = /^\d+$/.test(authData.loginKey) ? "mobileno" : "username";
 
-         userLogin({
+        userLogin({
             variables: {
                 loginKey: authData.loginKey,
                 password: authData.password,
@@ -45,14 +45,14 @@ const LoginPage = (props) => {
         //throw new Error("Invalid details");
     }
     else {
-        if(data){
+        if (data) {
             console.log(data.loginUser);
             localStorage.setItem('userId', data.loginUser.userId);
             localStorage.setItem('refreshToken', data.loginUser.refreshToken);
             localStorage.setItem('accessToken', data.loginUser.accessToken);
-            const remainingMilliseconds = 60 * 60 * 1000;
+            const remainingMilliseconds = 30 * 24 * 60 * 60 * 1000;
             const expiryDate = new Date(
-              new Date().getTime() + remainingMilliseconds
+                new Date().getTime() + remainingMilliseconds
             );
             localStorage.setItem('expiryDate', expiryDate.toISOString());
             props.setAutoLogout(remainingMilliseconds);
