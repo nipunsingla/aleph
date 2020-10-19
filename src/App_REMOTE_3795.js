@@ -44,11 +44,8 @@ function App(props) {
       logoutHandler();
       return;
     }
-
-    const userId = localStorage.getItem('userId');
-    setUserId(userId);
-    setaccessToken(accessToken);
-    setIsAuth(true);
+    const remainingMilliseconds = new Date(expiryDate).getTime() - new Date().getTime();
+    setAutoLogout(remainingMilliseconds);
   };
 
   const setAutoLogout = milliseconds => {
@@ -68,18 +65,7 @@ function App(props) {
     setIsAuth(true);
   }
 
-  const checkIsUserPresent = async () => {
-
-    const accessToken = localStorage.getItem('accessToken');
-
-    const expiryDate = localStorage.getItem('expiryDate');
-    if (!accessToken || !expiryDate) {
-      return false;
-    }
-    return true;
-
-  }
-  let routes =(!checkIsUserPresent()?
+  let routes = (
     <Switch>
       <Route exact path='/' component={Homepage} />
       <Route
@@ -107,25 +93,28 @@ function App(props) {
 
         )}
       />
-      <Redirect to="/feed" />
+      <Redirect to="/" />
     </Switch>
-  :
+  );
+  if (isAuth) {
+    routes = (
       <Switch>
         <Route exact path='/' component={Homepage} />
         <Route
           path="/feed"
           exact
-          component={() => <Feed accessToken={accessToken} />}
+          component={() => <Feed {...props} />}
         />
         <Route path='/classroom' exact component={() => <Classroom2 accessToken={accessToken} />} />
         <Route path='/group' exact component={() => <Group accessToken={accessToken} />} />
         <Route path='/chat' exact component={() => <ChatBase accessToken={accessToken} />} />
         <Route path='/status' exact component={() => <statusPage accessToken={accessToken} />} />
 
-        <Redirect to="/feed" component={() => <Feed accessToken={accessToken} />} />
+        <Redirect to="/feed" />
         {/* <Route path='/notifications' exact component={Group} /> */}
       </Switch>
     );
+  }
   return (
     <ApolloProvider client={client}>
       <div className="App">

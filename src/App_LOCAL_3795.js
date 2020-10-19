@@ -11,16 +11,16 @@ import { LoginPage } from './components/Login/Login.jsx';
 import { SignupPage } from './components/Signup/Signup';
 import { forgotPassword } from './components/forgotPassword/forgotPassword'
 import './App.css';
+import history from "./utils/history";
+import axios from 'axios';
 import { ApolloProvider, useLazyQuery } from '@apollo/client';
 import { client, USER_LOGIN_QUERY } from './query';
-
-function App(props) {
-  const [isAuth, setIsAuth] = useState(props.isAuth);
-  const [accessToken, setaccessToken] = useState(props.accessToken);
-  const [expiryDate, setexpiryDate] = useState(props.expiryDate);
+function App() {
+  const [isAuth, setIsAuth] = useState(false);
+  const [userId, setUserId] = useState(0);
+  const [accessToken, setaccessToken] = useState(0);
   const [authLoading, changeAuthLoading] = useState(false);;
   const [code16, changeCode16] = useState('');
-
   const signupHandler = (event, authData) => {
     event.preventDefault();
     this.setState({ authLoading: true });
@@ -33,10 +33,9 @@ function App(props) {
   };
 
   useEffect(() => {
-    init();
-  });
+    const accessToken = localStorage.getItem('accessToken');
 
-  const init = () => {
+    const expiryDate = localStorage.getItem('expiryDate');
     if (!accessToken || !expiryDate) {
       return;
     }
@@ -49,13 +48,14 @@ function App(props) {
     setUserId(userId);
     setaccessToken(accessToken);
     setIsAuth(true);
-  };
+  });
 
   const setAutoLogout = milliseconds => {
     setTimeout(() => {
       logoutHandler();
     }, milliseconds);
-  }
+  };
+
   const logoutHandler = () => {
     setaccessToken(null);
     setIsAuth(false);
@@ -117,10 +117,10 @@ function App(props) {
           exact
           component={() => <Feed accessToken={accessToken} />}
         />
-        <Route path='/classroom' exact component={() => <Classroom2 accessToken={accessToken} />} />
-        <Route path='/group' exact component={() => <Group accessToken={accessToken} />} />
-        <Route path='/chat' exact component={() => <ChatBase accessToken={accessToken} />} />
-        <Route path='/status' exact component={() => <statusPage accessToken={accessToken} />} />
+        <Route path='/classroom' exact component={Classroom2} />
+        <Route path='/group' exact component={Group} />
+        <Route path='/chat' exact component={ChatBase} />
+        <Route path='/status' exact component={statusPage} />
 
         <Redirect to="/feed" component={() => <Feed accessToken={accessToken} />} />
         {/* <Route path='/notifications' exact component={Group} /> */}
